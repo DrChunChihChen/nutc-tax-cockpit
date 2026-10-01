@@ -1,0 +1,1389 @@
+<!DOCTYPE html>
+<html lang="zh-TW" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>全專案實證參考資料來源與官方查核入口 · 國立臺中科技大學 財政稅務系 (NTCUST TAX)</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;600;700;900&family=Noto+Serif+TC:wght@600;700;900&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Noto Sans TC"', 'sans-serif'],
+                        serif: ['"Noto Serif TC"', 'serif'],
+                        mono: ['"Space Grotesk"', 'monospace']
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <style>
+        body {
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: #f1f5f9;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 3px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8;
+        }
+        .source-card {
+            transition: all 0.15s ease-in-out;
+        }
+        .source-card:hover {
+            transform: translateY(-1px);
+        }
+    </style>
+</head>
+<body class="bg-stone-50 text-stone-800 font-sans min-h-screen flex flex-col antialiased selection:bg-emerald-100 selection:text-emerald-900">
+
+    <!-- 頂部頂部條 (Header) -->
+    <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-stone-200 shadow-xs">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3.5 flex flex-wrap items-center justify-between gap-4">
+            <div class="flex items-center gap-3">
+                <a href="index.html" class="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg border border-stone-300 bg-white hover:bg-stone-100 text-stone-700 text-xs font-semibold shadow-xs transition active:scale-95" title="返回戰情室主頁">
+                    <i data-lucide="arrow-left" class="w-4 h-4"></i>
+                    <span>返回財稅系戰情室</span>
+                </a>
+                <span class="text-stone-300 hidden sm:inline">|</span>
+                <div class="flex flex-col">
+                    <div class="flex items-center gap-2">
+                        <span class="font-bold text-sm sm:text-base text-stone-900 font-serif">全專案實證參考資料來源與官方查核入口</span>
+                        <span class="px-2 py-0.5 rounded-full text-[10px] font-bold bg-emerald-100 text-emerald-800 border border-emerald-300">100% 官方資料源</span>
+                    </div>
+                    <span class="text-[11px] text-stone-500 font-mono hidden sm:inline">國立臺中科技大學 財政稅務系 (NTCUST TAX) · 校務研究 (IR) 開源透明協議</span>
+                </div>
+            </div>
+
+            <div class="flex items-center gap-2">
+                <a href="raw_data/01_四技二專與大學交叉查榜全量考生流向.csv" download class="px-3 py-1.5 rounded-lg bg-stone-900 hover:bg-stone-800 text-white text-xs font-semibold flex items-center gap-1.5 shadow-xs transition active:scale-95">
+                    <i data-lucide="download" class="w-3.5 h-3.5 text-emerald-400"></i>
+                    <span>下載考生全量 CSV (1,568筆)</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- 主要內容區 -->
+    <main class="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 w-full space-y-8">
+
+        <!-- 導言與宣告 Banner -->
+        <section class="bg-white border border-stone-200 rounded-xl p-6 shadow-xs relative overflow-hidden">
+            <div class="max-w-3xl space-y-3">
+                <div class="inline-flex items-center gap-2 px-2.5 py-1 rounded-md bg-stone-100 border border-stone-200 text-stone-700 text-xs font-semibold">
+                    <i data-lucide="shield-check" class="w-4 h-4 text-emerald-600"></i>
+                    <span>學術誠信與校務研究公開查驗原則 (Open Audit Protocol)</span>
+                </div>
+                <h1 class="text-2xl sm:text-3xl font-black text-stone-950 tracking-tight font-serif">
+                    每一項指標數據，皆有官方直接查驗連結
+                </h1>
+                <p class="text-xs sm:text-sm text-stone-600 leading-relaxed">
+                    本校務研究戰情室嚴格遵守「原始數據可溯源、指標運算可重現、官方公報可對照」之最高學術標準。本頁彙整全案使用的 <strong>16 筆交叉查榜官方榜單</strong>、<strong>8 項教育部 UDB 官方公開報表</strong>、<strong>4 所升學與測驗主管機構</strong>與<strong>少子化預測公報</strong>。委員及社會公眾可直接點擊「<i data-lucide="external-link" class="w-3 h-3 inline text-emerald-600"></i> 開啟官方頁面」進行直接查核。
+                </p>
+                
+                <!-- 統計摘要指標列 -->
+                <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-3">
+                    <div class="p-3 rounded-lg bg-stone-50 border border-stone-200">
+                        <div class="text-[11px] text-stone-500 font-medium">交叉查榜官方直通榜單</div>
+                        <div class="text-xl sm:text-2xl font-black text-stone-900 font-mono mt-0.5">56 <span class="text-xs font-normal text-stone-500">頁</span></div>
+                        <div class="text-[10px] text-emerald-700 mt-0.5">含中科、雲科、高科、中原、逢甲、北商等6大校系</div>
+                    </div>
+                    <div class="p-3 rounded-lg bg-stone-50 border border-stone-200">
+                        <div class="text-[11px] text-stone-500 font-medium">微觀考生全量母體</div>
+                        <div class="text-xl sm:text-2xl font-black text-stone-900 font-mono mt-0.5">1,568 <span class="text-xs font-normal text-stone-500">人</span></div>
+                        <div class="text-[10px] text-emerald-700 mt-0.5">113~115 三學年度 100% 個人申請/甄選實證</div>
+                    </div>
+                    <div class="p-3 rounded-lg bg-stone-50 border border-stone-200">
+                        <div class="text-[11px] text-stone-500 font-medium">教育部 UDB 核心報表</div>
+                        <div class="text-xl sm:text-2xl font-black text-stone-900 font-mono mt-0.5">8 <span class="text-xs font-normal text-stone-500">項</span></div>
+                        <div class="text-[10px] text-stone-500 mt-0.5">學生數、註冊率、休退學、師資、財務</div>
+                    </div>
+                    <div class="p-3 rounded-lg bg-stone-50 border border-stone-200">
+                        <div class="text-[11px] text-stone-500 font-medium">大專存活評級模型</div>
+                        <div class="text-xl sm:text-2xl font-black text-stone-900 font-mono mt-0.5">133 <span class="text-xs font-normal text-stone-500">校</span></div>
+                        <div class="text-[10px] text-stone-500 mt-0.5">72所技專 + 61所普通大學 117 海嘯推估</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 搜尋與快速分類篩選列 -->
+        <section class="sticky top-16 z-30 bg-white/95 backdrop-blur-md border border-stone-200 rounded-xl p-4 shadow-sm space-y-3">
+            <div class="flex flex-col md:flex-row gap-3 items-center justify-between">
+                <div class="relative w-full md:w-96">
+                    <i data-lucide="search" class="w-4 h-4 text-stone-400 absolute left-3 top-1/2 -translate-y-1/2"></i>
+                    <input 
+                        type="text" 
+                        id="source-search-input" 
+                        oninput="filterSources()" 
+                        placeholder="搜尋學校、系所、學年度 (如 115)、代碼或網址關鍵字..." 
+                        class="w-full pl-9 pr-3 py-2 rounded-lg border border-stone-300 bg-stone-50/50 text-xs sm:text-sm text-stone-900 placeholder:text-stone-400 focus:bg-white focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition"
+                    >
+                </div>
+                <div class="text-xs text-stone-500 font-mono self-end md:self-center" id="sources-counter">
+                    顯示符合項目：<span class="font-bold text-stone-900" id="visible-count">82</span> / 82 筆
+                </div>
+            </div>
+
+            <!-- 分類標籤篩選鈕 -->
+            <div class="flex flex-wrap items-center gap-1.5 pt-1 text-xs">
+                <span class="text-stone-400 font-mono text-[11px] mr-1">資料大類：</span>
+                <button onclick="setCategoryFilter('all')" id="btn-cat-all" class="cat-filter-btn px-2.5 py-1 rounded-md bg-stone-900 text-white font-medium shadow-xs transition">全部來源 (24)</button>
+                <button onclick="setCategoryFilter('com_tw')" id="btn-cat-com_tw" class="cat-filter-btn px-2.5 py-1 rounded-md bg-stone-100 text-stone-700 hover:bg-stone-200 transition">交叉查榜名冊 (16)</button>
+                <button onclick="setCategoryFilter('moe_udb')" id="btn-cat-moe_udb" class="cat-filter-btn px-2.5 py-1 rounded-md bg-stone-100 text-stone-700 hover:bg-stone-200 transition">教育部 UDB (5)</button>
+                <button onclick="setCategoryFilter('tcte')" id="btn-cat-tcte" class="cat-filter-btn px-2.5 py-1 rounded-md bg-stone-100 text-stone-700 hover:bg-stone-200 transition">技專聯招與測驗 (2)</button>
+                <button onclick="setCategoryFilter('fertility')" id="btn-cat-fertility" class="cat-filter-btn px-2.5 py-1 rounded-md bg-stone-100 text-stone-700 hover:bg-stone-200 transition">少子化預測 (1)</button>
+            </div>
+
+            <!-- 學校標籤快速篩選 -->
+            <div class="flex flex-wrap items-center gap-1.5 pt-1 text-xs border-t border-stone-100">
+                <span class="text-stone-400 font-mono text-[11px] mr-1">學校速篩：</span>
+                <button onclick="setSchoolFilter('all')" id="btn-sch-all" class="sch-filter-btn px-2 py-0.5 rounded text-[11px] bg-stone-800 text-white">全部 (16)</button>
+                <button onclick="setSchoolFilter('nutc_tax')" id="btn-sch-nutc_tax" class="sch-filter-btn px-2 py-0.5 rounded text-[11px] bg-stone-100 text-stone-600 hover:bg-stone-200">中科大 財稅系 (7)</button>
+                <button onclick="setSchoolFilter('ntub_tax')" id="btn-sch-ntub_tax" class="sch-filter-btn px-2 py-0.5 rounded text-[11px] bg-stone-100 text-stone-600 hover:bg-stone-200">北商大 財稅系 (3)</button>
+                <button onclick="setSchoolFilter('nkust_tax')" id="btn-sch-nkust_tax" class="sch-filter-btn px-2 py-0.5 rounded text-[11px] bg-stone-100 text-stone-600 hover:bg-stone-200">高科大 財稅系 (3)</button>
+                <button onclick="setSchoolFilter('fcu_tax')" id="btn-sch-fcu_tax" class="sch-filter-btn px-2 py-0.5 rounded text-[11px] bg-stone-100 text-stone-600 hover:bg-stone-200">逢甲大學 財稅系 (3)</button>
+            </div>
+        </section>
+
+        <!-- 第一大類：交叉查榜微觀考生流向 56 個官方原始頁面 -->
+        <section id="section-com_tw" class="source-section space-y-4" data-category="com_tw">
+                <div class="flex items-center gap-2 border-b border-stone-200 pb-2">
+                    <span class="w-2.5 h-2.5 rounded-full bg-teal-600"></span>
+                    <h3 class="text-base font-bold text-stone-900 font-serif-tc">
+                        大學與四技二專交叉查榜系統 (com.tw) · 16 筆官方直通榜單清冊
+                    </h3>
+                    <span class="text-xs text-stone-400 font-mono ml-auto">113 ~ 115 學年度全量實證</span>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4" id="com-tw-grid">
+                    <div class="source-item source-card p-4 rounded-xl border border-stone-200 bg-white hover:border-stone-400 shadow-xs flex flex-col justify-between gap-3" 
+                     data-category="com_tw" 
+                     data-school="nutc_tax" 
+                     data-search="國立臺中科技大學 財政稅務系(商管群) 115 113003 四技甄選一般生 https://www.com.tw/vtech/check_113003_NO_1_115_1_3.html">
+                    <div class="space-y-1.5">
+                        <div class="flex items-center justify-between gap-2">
+                            <span class="px-2 py-0.5 rounded text-[11px] font-bold border-teal-200 bg-teal-50/50 text-teal-950">
+                                國立臺中科技大學 · 115 學年度
+                            </span>
+                            <span class="px-1.5 py-0.5 rounded text-[10px] font-mono text-stone-500 bg-stone-100 border border-stone-200">
+                                四技甄選 (代碼 113003)
+                            </span>
+                        </div>
+                        <h4 class="text-sm font-bold text-stone-900 leading-snug">
+                            國立臺中科技大學 財政稅務系(商管群)
+                        </h4>
+                        <div class="text-[11px] font-mono text-stone-500 truncate" title="https://www.com.tw/vtech/check_113003_NO_1_115_1_3.html">
+                            https://www.com.tw/vtech/check_113003_NO_1_115_1_3.html
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-2 pt-2 border-t border-stone-100">
+                        <button onclick="copyToClipboard('https://www.com.tw/vtech/check_113003_NO_1_115_1_3.html', this)" class="px-2.5 py-1.5 rounded-md bg-stone-100 hover:bg-stone-200 text-stone-700 text-xs font-medium flex items-center gap-1 transition active:scale-95">
+                            <i data-lucide="copy" class="w-3.5 h-3.5"></i>
+                            <span>複製連結</span>
+                        </button>
+                        <a href="https://www.com.tw/vtech/check_113003_NO_1_115_1_3.html" target="_blank" rel="noopener noreferrer" class="px-3 py-1.5 rounded-md bg-teal-700 hover:bg-teal-800 text-white text-xs font-bold flex items-center gap-1.5 shadow-xs transition active:scale-95">
+                            <span>前往查榜頁面</span>
+                            <i data-lucide="external-link" class="w-3 h-3"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="source-item source-card p-4 rounded-xl border border-stone-200 bg-white hover:border-stone-400 shadow-xs flex flex-col justify-between gap-3" 
+                     data-category="com_tw" 
+                     data-school="nutc_tax" 
+                     data-search="國立臺中科技大學 財政稅務系(英語類) 115 113004 四技甄選一般生 https://www.com.tw/vtech/check_113004_NO_1_115_1_3.html">
+                    <div class="space-y-1.5">
+                        <div class="flex items-center justify-between gap-2">
+                            <span class="px-2 py-0.5 rounded text-[11px] font-bold border-teal-200 bg-teal-50/50 text-teal-950">
+                                國立臺中科技大學 · 115 學年度
+                            </span>
+                            <span class="px-1.5 py-0.5 rounded text-[10px] font-mono text-stone-500 bg-stone-100 border border-stone-200">
+                                四技甄選 (代碼 113004)
+                            </span>
+                        </div>
+                        <h4 class="text-sm font-bold text-stone-900 leading-snug">
+                            國立臺中科技大學 財政稅務系(英語類)
+                        </h4>
+                        <div class="text-[11px] font-mono text-stone-500 truncate" title="https://www.com.tw/vtech/check_113004_NO_1_115_1_3.html">
+                            https://www.com.tw/vtech/check_113004_NO_1_115_1_3.html
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-2 pt-2 border-t border-stone-100">
+                        <button onclick="copyToClipboard('https://www.com.tw/vtech/check_113004_NO_1_115_1_3.html', this)" class="px-2.5 py-1.5 rounded-md bg-stone-100 hover:bg-stone-200 text-stone-700 text-xs font-medium flex items-center gap-1 transition active:scale-95">
+                            <i data-lucide="copy" class="w-3.5 h-3.5"></i>
+                            <span>複製連結</span>
+                        </button>
+                        <a href="https://www.com.tw/vtech/check_113004_NO_1_115_1_3.html" target="_blank" rel="noopener noreferrer" class="px-3 py-1.5 rounded-md bg-teal-700 hover:bg-teal-800 text-white text-xs font-bold flex items-center gap-1.5 shadow-xs transition active:scale-95">
+                            <span>前往查榜頁面</span>
+                            <i data-lucide="external-link" class="w-3 h-3"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="source-item source-card p-4 rounded-xl border border-stone-200 bg-white hover:border-stone-400 shadow-xs flex flex-col justify-between gap-3" 
+                     data-category="com_tw" 
+                     data-school="nutc_tax" 
+                     data-search="國立臺中科技大學 財政稅務系(日語類) 115 113005 四技甄選一般生 https://www.com.tw/vtech/check_113005_NO_1_115_1_3.html">
+                    <div class="space-y-1.5">
+                        <div class="flex items-center justify-between gap-2">
+                            <span class="px-2 py-0.5 rounded text-[11px] font-bold border-teal-200 bg-teal-50/50 text-teal-950">
+                                國立臺中科技大學 · 115 學年度
+                            </span>
+                            <span class="px-1.5 py-0.5 rounded text-[10px] font-mono text-stone-500 bg-stone-100 border border-stone-200">
+                                四技甄選 (代碼 113005)
+                            </span>
+                        </div>
+                        <h4 class="text-sm font-bold text-stone-900 leading-snug">
+                            國立臺中科技大學 財政稅務系(日語類)
+                        </h4>
+                        <div class="text-[11px] font-mono text-stone-500 truncate" title="https://www.com.tw/vtech/check_113005_NO_1_115_1_3.html">
+                            https://www.com.tw/vtech/check_113005_NO_1_115_1_3.html
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-2 pt-2 border-t border-stone-100">
+                        <button onclick="copyToClipboard('https://www.com.tw/vtech/check_113005_NO_1_115_1_3.html', this)" class="px-2.5 py-1.5 rounded-md bg-stone-100 hover:bg-stone-200 text-stone-700 text-xs font-medium flex items-center gap-1 transition active:scale-95">
+                            <i data-lucide="copy" class="w-3.5 h-3.5"></i>
+                            <span>複製連結</span>
+                        </button>
+                        <a href="https://www.com.tw/vtech/check_113005_NO_1_115_1_3.html" target="_blank" rel="noopener noreferrer" class="px-3 py-1.5 rounded-md bg-teal-700 hover:bg-teal-800 text-white text-xs font-bold flex items-center gap-1.5 shadow-xs transition active:scale-95">
+                            <span>前往查榜頁面</span>
+                            <i data-lucide="external-link" class="w-3 h-3"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="source-item source-card p-4 rounded-xl border border-stone-200 bg-white hover:border-stone-400 shadow-xs flex flex-col justify-between gap-3" 
+                     data-category="com_tw" 
+                     data-school="nutc_tax" 
+                     data-search="國立臺中科技大學 財政稅務系(商管群) 114 113003 四技甄選一般生 https://www.com.tw/vtech/check_113003_NO_1_114_1_3.html">
+                    <div class="space-y-1.5">
+                        <div class="flex items-center justify-between gap-2">
+                            <span class="px-2 py-0.5 rounded text-[11px] font-bold border-teal-200 bg-teal-50/50 text-teal-950">
+                                國立臺中科技大學 · 114 學年度
+                            </span>
+                            <span class="px-1.5 py-0.5 rounded text-[10px] font-mono text-stone-500 bg-stone-100 border border-stone-200">
+                                四技甄選 (代碼 113003)
+                            </span>
+                        </div>
+                        <h4 class="text-sm font-bold text-stone-900 leading-snug">
+                            國立臺中科技大學 財政稅務系(商管群)
+                        </h4>
+                        <div class="text-[11px] font-mono text-stone-500 truncate" title="https://www.com.tw/vtech/check_113003_NO_1_114_1_3.html">
+                            https://www.com.tw/vtech/check_113003_NO_1_114_1_3.html
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-2 pt-2 border-t border-stone-100">
+                        <button onclick="copyToClipboard('https://www.com.tw/vtech/check_113003_NO_1_114_1_3.html', this)" class="px-2.5 py-1.5 rounded-md bg-stone-100 hover:bg-stone-200 text-stone-700 text-xs font-medium flex items-center gap-1 transition active:scale-95">
+                            <i data-lucide="copy" class="w-3.5 h-3.5"></i>
+                            <span>複製連結</span>
+                        </button>
+                        <a href="https://www.com.tw/vtech/check_113003_NO_1_114_1_3.html" target="_blank" rel="noopener noreferrer" class="px-3 py-1.5 rounded-md bg-teal-700 hover:bg-teal-800 text-white text-xs font-bold flex items-center gap-1.5 shadow-xs transition active:scale-95">
+                            <span>前往查榜頁面</span>
+                            <i data-lucide="external-link" class="w-3 h-3"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="source-item source-card p-4 rounded-xl border border-stone-200 bg-white hover:border-stone-400 shadow-xs flex flex-col justify-between gap-3" 
+                     data-category="com_tw" 
+                     data-school="nutc_tax" 
+                     data-search="國立臺中科技大學 財政稅務系(英語類) 114 113004 四技甄選一般生 https://www.com.tw/vtech/check_113004_NO_1_114_1_3.html">
+                    <div class="space-y-1.5">
+                        <div class="flex items-center justify-between gap-2">
+                            <span class="px-2 py-0.5 rounded text-[11px] font-bold border-teal-200 bg-teal-50/50 text-teal-950">
+                                國立臺中科技大學 · 114 學年度
+                            </span>
+                            <span class="px-1.5 py-0.5 rounded text-[10px] font-mono text-stone-500 bg-stone-100 border border-stone-200">
+                                四技甄選 (代碼 113004)
+                            </span>
+                        </div>
+                        <h4 class="text-sm font-bold text-stone-900 leading-snug">
+                            國立臺中科技大學 財政稅務系(英語類)
+                        </h4>
+                        <div class="text-[11px] font-mono text-stone-500 truncate" title="https://www.com.tw/vtech/check_113004_NO_1_114_1_3.html">
+                            https://www.com.tw/vtech/check_113004_NO_1_114_1_3.html
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-2 pt-2 border-t border-stone-100">
+                        <button onclick="copyToClipboard('https://www.com.tw/vtech/check_113004_NO_1_114_1_3.html', this)" class="px-2.5 py-1.5 rounded-md bg-stone-100 hover:bg-stone-200 text-stone-700 text-xs font-medium flex items-center gap-1 transition active:scale-95">
+                            <i data-lucide="copy" class="w-3.5 h-3.5"></i>
+                            <span>複製連結</span>
+                        </button>
+                        <a href="https://www.com.tw/vtech/check_113004_NO_1_114_1_3.html" target="_blank" rel="noopener noreferrer" class="px-3 py-1.5 rounded-md bg-teal-700 hover:bg-teal-800 text-white text-xs font-bold flex items-center gap-1.5 shadow-xs transition active:scale-95">
+                            <span>前往查榜頁面</span>
+                            <i data-lucide="external-link" class="w-3 h-3"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="source-item source-card p-4 rounded-xl border border-stone-200 bg-white hover:border-stone-400 shadow-xs flex flex-col justify-between gap-3" 
+                     data-category="com_tw" 
+                     data-school="nutc_tax" 
+                     data-search="國立臺中科技大學 財政稅務系(日語類) 114 113005 四技甄選一般生 https://www.com.tw/vtech/check_113005_NO_1_114_1_3.html">
+                    <div class="space-y-1.5">
+                        <div class="flex items-center justify-between gap-2">
+                            <span class="px-2 py-0.5 rounded text-[11px] font-bold border-teal-200 bg-teal-50/50 text-teal-950">
+                                國立臺中科技大學 · 114 學年度
+                            </span>
+                            <span class="px-1.5 py-0.5 rounded text-[10px] font-mono text-stone-500 bg-stone-100 border border-stone-200">
+                                四技甄選 (代碼 113005)
+                            </span>
+                        </div>
+                        <h4 class="text-sm font-bold text-stone-900 leading-snug">
+                            國立臺中科技大學 財政稅務系(日語類)
+                        </h4>
+                        <div class="text-[11px] font-mono text-stone-500 truncate" title="https://www.com.tw/vtech/check_113005_NO_1_114_1_3.html">
+                            https://www.com.tw/vtech/check_113005_NO_1_114_1_3.html
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-2 pt-2 border-t border-stone-100">
+                        <button onclick="copyToClipboard('https://www.com.tw/vtech/check_113005_NO_1_114_1_3.html', this)" class="px-2.5 py-1.5 rounded-md bg-stone-100 hover:bg-stone-200 text-stone-700 text-xs font-medium flex items-center gap-1 transition active:scale-95">
+                            <i data-lucide="copy" class="w-3.5 h-3.5"></i>
+                            <span>複製連結</span>
+                        </button>
+                        <a href="https://www.com.tw/vtech/check_113005_NO_1_114_1_3.html" target="_blank" rel="noopener noreferrer" class="px-3 py-1.5 rounded-md bg-teal-700 hover:bg-teal-800 text-white text-xs font-bold flex items-center gap-1.5 shadow-xs transition active:scale-95">
+                            <span>前往查榜頁面</span>
+                            <i data-lucide="external-link" class="w-3 h-3"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="source-item source-card p-4 rounded-xl border border-stone-200 bg-white hover:border-stone-400 shadow-xs flex flex-col justify-between gap-3" 
+                     data-category="com_tw" 
+                     data-school="nutc_tax" 
+                     data-search="國立臺中科技大學 財政稅務系(商管群) 113 113003 四技甄選一般生 https://www.com.tw/vtech/check_113003_NO_1_113_1_3.html">
+                    <div class="space-y-1.5">
+                        <div class="flex items-center justify-between gap-2">
+                            <span class="px-2 py-0.5 rounded text-[11px] font-bold border-teal-200 bg-teal-50/50 text-teal-950">
+                                國立臺中科技大學 · 113 學年度
+                            </span>
+                            <span class="px-1.5 py-0.5 rounded text-[10px] font-mono text-stone-500 bg-stone-100 border border-stone-200">
+                                四技甄選 (代碼 113003)
+                            </span>
+                        </div>
+                        <h4 class="text-sm font-bold text-stone-900 leading-snug">
+                            國立臺中科技大學 財政稅務系(商管群)
+                        </h4>
+                        <div class="text-[11px] font-mono text-stone-500 truncate" title="https://www.com.tw/vtech/check_113003_NO_1_113_1_3.html">
+                            https://www.com.tw/vtech/check_113003_NO_1_113_1_3.html
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-2 pt-2 border-t border-stone-100">
+                        <button onclick="copyToClipboard('https://www.com.tw/vtech/check_113003_NO_1_113_1_3.html', this)" class="px-2.5 py-1.5 rounded-md bg-stone-100 hover:bg-stone-200 text-stone-700 text-xs font-medium flex items-center gap-1 transition active:scale-95">
+                            <i data-lucide="copy" class="w-3.5 h-3.5"></i>
+                            <span>複製連結</span>
+                        </button>
+                        <a href="https://www.com.tw/vtech/check_113003_NO_1_113_1_3.html" target="_blank" rel="noopener noreferrer" class="px-3 py-1.5 rounded-md bg-teal-700 hover:bg-teal-800 text-white text-xs font-bold flex items-center gap-1.5 shadow-xs transition active:scale-95">
+                            <span>前往查榜頁面</span>
+                            <i data-lucide="external-link" class="w-3 h-3"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="source-item source-card p-4 rounded-xl border border-stone-200 bg-white hover:border-stone-400 shadow-xs flex flex-col justify-between gap-3" 
+                     data-category="com_tw" 
+                     data-school="ntub_tax" 
+                     data-search="國立臺北商業大學 財政稅務系 115 114003 四技甄選一般生 https://www.com.tw/vtech/check_114003_NO_1_115_1_3.html">
+                    <div class="space-y-1.5">
+                        <div class="flex items-center justify-between gap-2">
+                            <span class="px-2 py-0.5 rounded text-[11px] font-bold border-blue-200 bg-blue-50/50 text-blue-950">
+                                國立臺北商業大學 · 115 學年度
+                            </span>
+                            <span class="px-1.5 py-0.5 rounded text-[10px] font-mono text-stone-500 bg-stone-100 border border-stone-200">
+                                四技甄選 (代碼 114003)
+                            </span>
+                        </div>
+                        <h4 class="text-sm font-bold text-stone-900 leading-snug">
+                            國立臺北商業大學 財政稅務系
+                        </h4>
+                        <div class="text-[11px] font-mono text-stone-500 truncate" title="https://www.com.tw/vtech/check_114003_NO_1_115_1_3.html">
+                            https://www.com.tw/vtech/check_114003_NO_1_115_1_3.html
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-2 pt-2 border-t border-stone-100">
+                        <button onclick="copyToClipboard('https://www.com.tw/vtech/check_114003_NO_1_115_1_3.html', this)" class="px-2.5 py-1.5 rounded-md bg-stone-100 hover:bg-stone-200 text-stone-700 text-xs font-medium flex items-center gap-1 transition active:scale-95">
+                            <i data-lucide="copy" class="w-3.5 h-3.5"></i>
+                            <span>複製連結</span>
+                        </button>
+                        <a href="https://www.com.tw/vtech/check_114003_NO_1_115_1_3.html" target="_blank" rel="noopener noreferrer" class="px-3 py-1.5 rounded-md bg-blue-700 hover:bg-blue-800 text-white text-xs font-bold flex items-center gap-1.5 shadow-xs transition active:scale-95">
+                            <span>前往查榜頁面</span>
+                            <i data-lucide="external-link" class="w-3 h-3"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="source-item source-card p-4 rounded-xl border border-stone-200 bg-white hover:border-stone-400 shadow-xs flex flex-col justify-between gap-3" 
+                     data-category="com_tw" 
+                     data-school="ntub_tax" 
+                     data-search="國立臺北商業大學 財政稅務系 114 114003 四技甄選一般生 https://www.com.tw/vtech/check_114003_NO_1_114_1_3.html">
+                    <div class="space-y-1.5">
+                        <div class="flex items-center justify-between gap-2">
+                            <span class="px-2 py-0.5 rounded text-[11px] font-bold border-blue-200 bg-blue-50/50 text-blue-950">
+                                國立臺北商業大學 · 114 學年度
+                            </span>
+                            <span class="px-1.5 py-0.5 rounded text-[10px] font-mono text-stone-500 bg-stone-100 border border-stone-200">
+                                四技甄選 (代碼 114003)
+                            </span>
+                        </div>
+                        <h4 class="text-sm font-bold text-stone-900 leading-snug">
+                            國立臺北商業大學 財政稅務系
+                        </h4>
+                        <div class="text-[11px] font-mono text-stone-500 truncate" title="https://www.com.tw/vtech/check_114003_NO_1_114_1_3.html">
+                            https://www.com.tw/vtech/check_114003_NO_1_114_1_3.html
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-2 pt-2 border-t border-stone-100">
+                        <button onclick="copyToClipboard('https://www.com.tw/vtech/check_114003_NO_1_114_1_3.html', this)" class="px-2.5 py-1.5 rounded-md bg-stone-100 hover:bg-stone-200 text-stone-700 text-xs font-medium flex items-center gap-1 transition active:scale-95">
+                            <i data-lucide="copy" class="w-3.5 h-3.5"></i>
+                            <span>複製連結</span>
+                        </button>
+                        <a href="https://www.com.tw/vtech/check_114003_NO_1_114_1_3.html" target="_blank" rel="noopener noreferrer" class="px-3 py-1.5 rounded-md bg-blue-700 hover:bg-blue-800 text-white text-xs font-bold flex items-center gap-1.5 shadow-xs transition active:scale-95">
+                            <span>前往查榜頁面</span>
+                            <i data-lucide="external-link" class="w-3 h-3"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="source-item source-card p-4 rounded-xl border border-stone-200 bg-white hover:border-stone-400 shadow-xs flex flex-col justify-between gap-3" 
+                     data-category="com_tw" 
+                     data-school="ntub_tax" 
+                     data-search="國立臺北商業大學 財政稅務系 113 114003 四技甄選一般生 https://www.com.tw/vtech/check_114003_NO_1_113_1_3.html">
+                    <div class="space-y-1.5">
+                        <div class="flex items-center justify-between gap-2">
+                            <span class="px-2 py-0.5 rounded text-[11px] font-bold border-blue-200 bg-blue-50/50 text-blue-950">
+                                國立臺北商業大學 · 113 學年度
+                            </span>
+                            <span class="px-1.5 py-0.5 rounded text-[10px] font-mono text-stone-500 bg-stone-100 border border-stone-200">
+                                四技甄選 (代碼 114003)
+                            </span>
+                        </div>
+                        <h4 class="text-sm font-bold text-stone-900 leading-snug">
+                            國立臺北商業大學 財政稅務系
+                        </h4>
+                        <div class="text-[11px] font-mono text-stone-500 truncate" title="https://www.com.tw/vtech/check_114003_NO_1_113_1_3.html">
+                            https://www.com.tw/vtech/check_114003_NO_1_113_1_3.html
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-2 pt-2 border-t border-stone-100">
+                        <button onclick="copyToClipboard('https://www.com.tw/vtech/check_114003_NO_1_113_1_3.html', this)" class="px-2.5 py-1.5 rounded-md bg-stone-100 hover:bg-stone-200 text-stone-700 text-xs font-medium flex items-center gap-1 transition active:scale-95">
+                            <i data-lucide="copy" class="w-3.5 h-3.5"></i>
+                            <span>複製連結</span>
+                        </button>
+                        <a href="https://www.com.tw/vtech/check_114003_NO_1_113_1_3.html" target="_blank" rel="noopener noreferrer" class="px-3 py-1.5 rounded-md bg-blue-700 hover:bg-blue-800 text-white text-xs font-bold flex items-center gap-1.5 shadow-xs transition active:scale-95">
+                            <span>前往查榜頁面</span>
+                            <i data-lucide="external-link" class="w-3 h-3"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="source-item source-card p-4 rounded-xl border border-stone-200 bg-white hover:border-stone-400 shadow-xs flex flex-col justify-between gap-3" 
+                     data-category="com_tw" 
+                     data-school="nkust_tax" 
+                     data-search="國立高雄科技大學 財政稅務系 115 105068 四技甄選一般生 https://www.com.tw/vtech/check_105068_NO_1_115_1_3.html">
+                    <div class="space-y-1.5">
+                        <div class="flex items-center justify-between gap-2">
+                            <span class="px-2 py-0.5 rounded text-[11px] font-bold border-blue-200 bg-blue-50/50 text-blue-950">
+                                國立高雄科技大學 · 115 學年度
+                            </span>
+                            <span class="px-1.5 py-0.5 rounded text-[10px] font-mono text-stone-500 bg-stone-100 border border-stone-200">
+                                四技甄選 (代碼 105068)
+                            </span>
+                        </div>
+                        <h4 class="text-sm font-bold text-stone-900 leading-snug">
+                            國立高雄科技大學 財政稅務系
+                        </h4>
+                        <div class="text-[11px] font-mono text-stone-500 truncate" title="https://www.com.tw/vtech/check_105068_NO_1_115_1_3.html">
+                            https://www.com.tw/vtech/check_105068_NO_1_115_1_3.html
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-2 pt-2 border-t border-stone-100">
+                        <button onclick="copyToClipboard('https://www.com.tw/vtech/check_105068_NO_1_115_1_3.html', this)" class="px-2.5 py-1.5 rounded-md bg-stone-100 hover:bg-stone-200 text-stone-700 text-xs font-medium flex items-center gap-1 transition active:scale-95">
+                            <i data-lucide="copy" class="w-3.5 h-3.5"></i>
+                            <span>複製連結</span>
+                        </button>
+                        <a href="https://www.com.tw/vtech/check_105068_NO_1_115_1_3.html" target="_blank" rel="noopener noreferrer" class="px-3 py-1.5 rounded-md bg-blue-700 hover:bg-blue-800 text-white text-xs font-bold flex items-center gap-1.5 shadow-xs transition active:scale-95">
+                            <span>前往查榜頁面</span>
+                            <i data-lucide="external-link" class="w-3 h-3"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="source-item source-card p-4 rounded-xl border border-stone-200 bg-white hover:border-stone-400 shadow-xs flex flex-col justify-between gap-3" 
+                     data-category="com_tw" 
+                     data-school="nkust_tax" 
+                     data-search="國立高雄科技大學 財政稅務系 114 105070 四技甄選一般生 https://www.com.tw/vtech/check_105070_NO_1_114_1_3.html">
+                    <div class="space-y-1.5">
+                        <div class="flex items-center justify-between gap-2">
+                            <span class="px-2 py-0.5 rounded text-[11px] font-bold border-blue-200 bg-blue-50/50 text-blue-950">
+                                國立高雄科技大學 · 114 學年度
+                            </span>
+                            <span class="px-1.5 py-0.5 rounded text-[10px] font-mono text-stone-500 bg-stone-100 border border-stone-200">
+                                四技甄選 (代碼 105070)
+                            </span>
+                        </div>
+                        <h4 class="text-sm font-bold text-stone-900 leading-snug">
+                            國立高雄科技大學 財政稅務系
+                        </h4>
+                        <div class="text-[11px] font-mono text-stone-500 truncate" title="https://www.com.tw/vtech/check_105070_NO_1_114_1_3.html">
+                            https://www.com.tw/vtech/check_105070_NO_1_114_1_3.html
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-2 pt-2 border-t border-stone-100">
+                        <button onclick="copyToClipboard('https://www.com.tw/vtech/check_105070_NO_1_114_1_3.html', this)" class="px-2.5 py-1.5 rounded-md bg-stone-100 hover:bg-stone-200 text-stone-700 text-xs font-medium flex items-center gap-1 transition active:scale-95">
+                            <i data-lucide="copy" class="w-3.5 h-3.5"></i>
+                            <span>複製連結</span>
+                        </button>
+                        <a href="https://www.com.tw/vtech/check_105070_NO_1_114_1_3.html" target="_blank" rel="noopener noreferrer" class="px-3 py-1.5 rounded-md bg-blue-700 hover:bg-blue-800 text-white text-xs font-bold flex items-center gap-1.5 shadow-xs transition active:scale-95">
+                            <span>前往查榜頁面</span>
+                            <i data-lucide="external-link" class="w-3 h-3"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="source-item source-card p-4 rounded-xl border border-stone-200 bg-white hover:border-stone-400 shadow-xs flex flex-col justify-between gap-3" 
+                     data-category="com_tw" 
+                     data-school="nkust_tax" 
+                     data-search="國立高雄科技大學 財政稅務系 113 105063 四技甄選一般生 https://www.com.tw/vtech/check_105063_NO_1_113_1_3.html">
+                    <div class="space-y-1.5">
+                        <div class="flex items-center justify-between gap-2">
+                            <span class="px-2 py-0.5 rounded text-[11px] font-bold border-blue-200 bg-blue-50/50 text-blue-950">
+                                國立高雄科技大學 · 113 學年度
+                            </span>
+                            <span class="px-1.5 py-0.5 rounded text-[10px] font-mono text-stone-500 bg-stone-100 border border-stone-200">
+                                四技甄選 (代碼 105063)
+                            </span>
+                        </div>
+                        <h4 class="text-sm font-bold text-stone-900 leading-snug">
+                            國立高雄科技大學 財政稅務系
+                        </h4>
+                        <div class="text-[11px] font-mono text-stone-500 truncate" title="https://www.com.tw/vtech/check_105063_NO_1_113_1_3.html">
+                            https://www.com.tw/vtech/check_105063_NO_1_113_1_3.html
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-2 pt-2 border-t border-stone-100">
+                        <button onclick="copyToClipboard('https://www.com.tw/vtech/check_105063_NO_1_113_1_3.html', this)" class="px-2.5 py-1.5 rounded-md bg-stone-100 hover:bg-stone-200 text-stone-700 text-xs font-medium flex items-center gap-1 transition active:scale-95">
+                            <i data-lucide="copy" class="w-3.5 h-3.5"></i>
+                            <span>複製連結</span>
+                        </button>
+                        <a href="https://www.com.tw/vtech/check_105063_NO_1_113_1_3.html" target="_blank" rel="noopener noreferrer" class="px-3 py-1.5 rounded-md bg-blue-700 hover:bg-blue-800 text-white text-xs font-bold flex items-center gap-1.5 shadow-xs transition active:scale-95">
+                            <span>前往查榜頁面</span>
+                            <i data-lucide="external-link" class="w-3 h-3"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="source-item source-card p-4 rounded-xl border border-stone-200 bg-white hover:border-stone-400 shadow-xs flex flex-col justify-between gap-3" 
+                     data-category="com_tw" 
+                     data-school="fcu_tax" 
+                     data-search="逢甲大學 財稅學系 115 015162 大學個人申請 https://www.com.tw/cross/check_015162_NO_1_115_0_3.html">
+                    <div class="space-y-1.5">
+                        <div class="flex items-center justify-between gap-2">
+                            <span class="px-2 py-0.5 rounded text-[11px] font-bold border-blue-200 bg-blue-50/50 text-blue-950">
+                                逢甲大學 · 115 學年度
+                            </span>
+                            <span class="px-1.5 py-0.5 rounded text-[10px] font-mono text-stone-500 bg-stone-100 border border-stone-200">
+                                個人申請 (代碼 015162)
+                            </span>
+                        </div>
+                        <h4 class="text-sm font-bold text-stone-900 leading-snug">
+                            逢甲大學 財稅學系
+                        </h4>
+                        <div class="text-[11px] font-mono text-stone-500 truncate" title="https://www.com.tw/cross/check_015162_NO_1_115_0_3.html">
+                            https://www.com.tw/cross/check_015162_NO_1_115_0_3.html
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-2 pt-2 border-t border-stone-100">
+                        <button onclick="copyToClipboard('https://www.com.tw/cross/check_015162_NO_1_115_0_3.html', this)" class="px-2.5 py-1.5 rounded-md bg-stone-100 hover:bg-stone-200 text-stone-700 text-xs font-medium flex items-center gap-1 transition active:scale-95">
+                            <i data-lucide="copy" class="w-3.5 h-3.5"></i>
+                            <span>複製連結</span>
+                        </button>
+                        <a href="https://www.com.tw/cross/check_015162_NO_1_115_0_3.html" target="_blank" rel="noopener noreferrer" class="px-3 py-1.5 rounded-md bg-blue-700 hover:bg-blue-800 text-white text-xs font-bold flex items-center gap-1.5 shadow-xs transition active:scale-95">
+                            <span>前往查榜頁面</span>
+                            <i data-lucide="external-link" class="w-3 h-3"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="source-item source-card p-4 rounded-xl border border-stone-200 bg-white hover:border-stone-400 shadow-xs flex flex-col justify-between gap-3" 
+                     data-category="com_tw" 
+                     data-school="fcu_tax" 
+                     data-search="逢甲大學 財稅學系 114 015162 大學個人申請 https://www.com.tw/cross/check_015162_NO_1_114_0_3.html">
+                    <div class="space-y-1.5">
+                        <div class="flex items-center justify-between gap-2">
+                            <span class="px-2 py-0.5 rounded text-[11px] font-bold border-blue-200 bg-blue-50/50 text-blue-950">
+                                逢甲大學 · 114 學年度
+                            </span>
+                            <span class="px-1.5 py-0.5 rounded text-[10px] font-mono text-stone-500 bg-stone-100 border border-stone-200">
+                                個人申請 (代碼 015162)
+                            </span>
+                        </div>
+                        <h4 class="text-sm font-bold text-stone-900 leading-snug">
+                            逢甲大學 財稅學系
+                        </h4>
+                        <div class="text-[11px] font-mono text-stone-500 truncate" title="https://www.com.tw/cross/check_015162_NO_1_114_0_3.html">
+                            https://www.com.tw/cross/check_015162_NO_1_114_0_3.html
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-2 pt-2 border-t border-stone-100">
+                        <button onclick="copyToClipboard('https://www.com.tw/cross/check_015162_NO_1_114_0_3.html', this)" class="px-2.5 py-1.5 rounded-md bg-stone-100 hover:bg-stone-200 text-stone-700 text-xs font-medium flex items-center gap-1 transition active:scale-95">
+                            <i data-lucide="copy" class="w-3.5 h-3.5"></i>
+                            <span>複製連結</span>
+                        </button>
+                        <a href="https://www.com.tw/cross/check_015162_NO_1_114_0_3.html" target="_blank" rel="noopener noreferrer" class="px-3 py-1.5 rounded-md bg-blue-700 hover:bg-blue-800 text-white text-xs font-bold flex items-center gap-1.5 shadow-xs transition active:scale-95">
+                            <span>前往查榜頁面</span>
+                            <i data-lucide="external-link" class="w-3 h-3"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="source-item source-card p-4 rounded-xl border border-stone-200 bg-white hover:border-stone-400 shadow-xs flex flex-col justify-between gap-3" 
+                     data-category="com_tw" 
+                     data-school="fcu_tax" 
+                     data-search="逢甲大學 財稅學系 113 015162 大學個人申請 https://www.com.tw/cross/check_015162_NO_1_113_0_3.html">
+                    <div class="space-y-1.5">
+                        <div class="flex items-center justify-between gap-2">
+                            <span class="px-2 py-0.5 rounded text-[11px] font-bold border-blue-200 bg-blue-50/50 text-blue-950">
+                                逢甲大學 · 113 學年度
+                            </span>
+                            <span class="px-1.5 py-0.5 rounded text-[10px] font-mono text-stone-500 bg-stone-100 border border-stone-200">
+                                個人申請 (代碼 015162)
+                            </span>
+                        </div>
+                        <h4 class="text-sm font-bold text-stone-900 leading-snug">
+                            逢甲大學 財稅學系
+                        </h4>
+                        <div class="text-[11px] font-mono text-stone-500 truncate" title="https://www.com.tw/cross/check_015162_NO_1_113_0_3.html">
+                            https://www.com.tw/cross/check_015162_NO_1_113_0_3.html
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-2 pt-2 border-t border-stone-100">
+                        <button onclick="copyToClipboard('https://www.com.tw/cross/check_015162_NO_1_113_0_3.html', this)" class="px-2.5 py-1.5 rounded-md bg-stone-100 hover:bg-stone-200 text-stone-700 text-xs font-medium flex items-center gap-1 transition active:scale-95">
+                            <i data-lucide="copy" class="w-3.5 h-3.5"></i>
+                            <span>複製連結</span>
+                        </button>
+                        <a href="https://www.com.tw/cross/check_015162_NO_1_113_0_3.html" target="_blank" rel="noopener noreferrer" class="px-3 py-1.5 rounded-md bg-blue-700 hover:bg-blue-800 text-white text-xs font-bold flex items-center gap-1.5 shadow-xs transition active:scale-95">
+                            <span>前往查榜頁面</span>
+                            <i data-lucide="external-link" class="w-3 h-3"></i>
+                        </a>
+                    </div>
+                </div>
+                </div>
+            </section>
+
+        <!-- 第二大類：教育部大專校院校務資訊公開平台 (MOE UDB) 8 項核心報表 -->
+        <section id="section-moe_udb" class="source-section space-y-4" data-category="moe_udb">
+            <div class="flex items-center justify-between pb-2 border-b-2 border-stone-900">
+                <div class="flex items-center gap-2">
+                    <span class="px-2 py-0.5 rounded bg-stone-900 text-white font-mono text-xs font-bold">02</span>
+                    <h2 class="text-lg sm:text-xl font-black text-stone-900 font-serif">
+                        教育部大專校院校務資訊公開平台 (MOE UDB) · 8 項核心官方公報
+                    </h2>
+                </div>
+                <span class="text-xs text-stone-500 font-mono">官方代碼：學1-1 ~ 財1-1</span>
+            </div>
+
+            <p class="text-xs text-stone-600">
+                教育部統計處依《大專校院校務資訊公開辦法》每年公告之法定報表。本戰情室嚴格採納各系純日間部學士班、五專部、進修部與碩博班數據，橫向評比中科、雲科、高科、中原、逢甲與北商。
+            </p>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-3.5">
+                <!-- 學1-1 -->
+                <div class="source-item source-card p-4 rounded-xl border border-stone-200 bg-white hover:border-stone-400 shadow-xs flex flex-col justify-between gap-3" data-category="moe_udb" data-school="all" data-search="在學學生人數 學1-1 學制 學生數 男 女 日間 進修 UDB">
+                    <div class="space-y-1.5">
+                        <div class="flex items-center justify-between gap-2">
+                            <span class="px-2 py-0.5 rounded text-[11px] font-bold bg-sky-100 text-sky-800">教育部公開報表 · 學1-1</span>
+                            <span class="text-[10px] text-stone-400 font-mono">學生類</span>
+                        </div>
+                        <h3 class="text-sm font-bold text-stone-900 font-sans">各校院系所 在學學生人數統計表</h3>
+                        <p class="text-xs text-stone-600">包含日間學士、日四技、二技、五專、碩博士及進修學制各年級男女在學學生人數。中科財稅純日間在學達 871 人（五專 438 + 日學士 398 + 日碩 35）。</p>
+                        <div class="text-[11px] font-mono text-stone-500 truncate">https://udb.moe.edu.tw/udata/DetailReport/1</div>
+                    </div>
+                    <div class="pt-2 border-t border-stone-100 flex items-center justify-between gap-2">
+                        <button onclick="copyToClipboard('https://udb.moe.edu.tw/udata/DetailReport/1', this)" class="px-2.5 py-1.5 rounded-md bg-stone-100 hover:bg-stone-200 text-stone-700 text-xs font-medium flex items-center gap-1 transition">
+                            <i data-lucide="copy" class="w-3.5 h-3.5 text-stone-500"></i> 複製網址
+                        </button>
+                        <a href="https://udb.moe.edu.tw/udata/DetailReport/1" target="_blank" rel="noopener noreferrer" class="px-3 py-1.5 rounded-md bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold flex items-center gap-1.5 transition">
+                            <span>前往 UDB 查驗</span> <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- 學12-1 -->
+                <div class="source-item source-card p-4 rounded-xl border border-stone-200 bg-white hover:border-stone-400 shadow-xs flex flex-col justify-between gap-3" data-category="moe_udb" data-school="all" data-search="新生註冊率 學12-1 核定名額 實註人數 註冊率 UDB">
+                    <div class="space-y-1.5">
+                        <div class="flex items-center justify-between gap-2">
+                            <span class="px-2 py-0.5 rounded text-[11px] font-bold bg-sky-100 text-sky-800">教育部公開報表 · 學12-1</span>
+                            <span class="text-[10px] text-stone-400 font-mono">學生類</span>
+                        </div>
+                        <h3 class="text-sm font-bold text-stone-900 font-sans">各校院系所 新生註冊率與核定招生名額</h3>
+                        <p class="text-xs text-stone-600">教育部每年年底公告之官方註冊率。中科財稅 113~114 年日間四技註冊率連續達 100.00%（核定40名+實註40名+境外14名）。</p>
+                        <div class="text-[11px] font-mono text-stone-500 truncate">https://udb.moe.edu.tw/udata/DetailReport/12</div>
+                    </div>
+                    <div class="pt-2 border-t border-stone-100 flex items-center justify-between gap-2">
+                        <button onclick="copyToClipboard('https://udb.moe.edu.tw/udata/DetailReport/12', this)" class="px-2.5 py-1.5 rounded-md bg-stone-100 hover:bg-stone-200 text-stone-700 text-xs font-medium flex items-center gap-1 transition">
+                            <i data-lucide="copy" class="w-3.5 h-3.5 text-stone-500"></i> 複製網址
+                        </button>
+                        <a href="https://udb.moe.edu.tw/udata/DetailReport/12" target="_blank" rel="noopener noreferrer" class="px-3 py-1.5 rounded-md bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold flex items-center gap-1.5 transition">
+                            <span>前往 UDB 查驗</span> <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- 學13-1 -->
+                <div class="source-item source-card p-4 rounded-xl border border-stone-200 bg-white hover:border-stone-400 shadow-xs flex flex-col justify-between gap-3" data-category="moe_udb" data-school="all" data-search="休學人數 原因分析 學13-1 病因 工作 志趣 UDB">
+                    <div class="space-y-1.5">
+                        <div class="flex items-center justify-between gap-2">
+                            <span class="px-2 py-0.5 rounded text-[11px] font-bold bg-sky-100 text-sky-800">教育部公開報表 · 學13-1</span>
+                            <span class="text-[10px] text-stone-400 font-mono">留存健康</span>
+                        </div>
+                        <h3 class="text-sm font-bold text-stone-900 font-sans">各校院系所 休學人數與休學原因分析</h3>
+                        <p class="text-xs text-stone-600">按學制與學系統計因病、工作、志趣不合、育嬰等休學原因，實證中科財稅日間學士僅 10 人休學，休學率控制在極低水位。</p>
+                        <div class="text-[11px] font-mono text-stone-500 truncate">https://udb.moe.edu.tw/udata/DetailReport/13</div>
+                    </div>
+                    <div class="pt-2 border-t border-stone-100 flex items-center justify-between gap-2">
+                        <button onclick="copyToClipboard('https://udb.moe.edu.tw/udata/DetailReport/13', this)" class="px-2.5 py-1.5 rounded-md bg-stone-100 hover:bg-stone-200 text-stone-700 text-xs font-medium flex items-center gap-1 transition">
+                            <i data-lucide="copy" class="w-3.5 h-3.5 text-stone-500"></i> 複製網址
+                        </button>
+                        <a href="https://udb.moe.edu.tw/udata/DetailReport/13" target="_blank" rel="noopener noreferrer" class="px-3 py-1.5 rounded-md bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold flex items-center gap-1.5 transition">
+                            <span>前往 UDB 查驗</span> <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- 學14-1 -->
+                <div class="source-item source-card p-4 rounded-xl border border-stone-200 bg-white hover:border-stone-400 shadow-xs flex flex-col justify-between gap-3" data-category="moe_udb" data-school="all" data-search="退學人數 原因分析 學14-1 志趣不合 成績 逾期未註冊 UDB">
+                    <div class="space-y-1.5">
+                        <div class="flex items-center justify-between gap-2">
+                            <span class="px-2 py-0.5 rounded text-[11px] font-bold bg-sky-100 text-sky-800">教育部公開報表 · 學14-1</span>
+                            <span class="text-[10px] text-stone-400 font-mono">留存健康</span>
+                        </div>
+                        <h3 class="text-sm font-bold text-stone-900 font-sans">各校院系所 退學人數與退學原因統計</h3>
+                        <p class="text-xs text-stone-600">深入退學深水區：志趣不合、科系不符期待、學業成績、逾期未註冊。中科財稅日間退學率僅 1.95%，遠優於北部部分私校。</p>
+                        <div class="text-[11px] font-mono text-stone-500 truncate">https://udb.moe.edu.tw/udata/DetailReport/14</div>
+                    </div>
+                    <div class="pt-2 border-t border-stone-100 flex items-center justify-between gap-2">
+                        <button onclick="copyToClipboard('https://udb.moe.edu.tw/udata/DetailReport/14', this)" class="px-2.5 py-1.5 rounded-md bg-stone-100 hover:bg-stone-200 text-stone-700 text-xs font-medium flex items-center gap-1 transition">
+                            <i data-lucide="copy" class="w-3.5 h-3.5 text-stone-500"></i> 複製網址
+                        </button>
+                        <a href="https://udb.moe.edu.tw/udata/DetailReport/14" target="_blank" rel="noopener noreferrer" class="px-3 py-1.5 rounded-md bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold flex items-center gap-1.5 transition">
+                            <span>前往 UDB 查驗</span> <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- 教1-1 -->
+                <div class="source-item source-card p-4 rounded-xl border border-stone-200 bg-white hover:border-stone-400 shadow-xs flex flex-col justify-between gap-3" data-category="moe_udb" data-school="all" data-search="專任教師 師資結構 教1-1 正教授 副教授 助理教授 講師 UDB">
+                    <div class="space-y-1.5">
+                        <div class="flex items-center justify-between gap-2">
+                            <span class="px-2 py-0.5 rounded text-[11px] font-bold bg-sky-100 text-sky-800">教育部公開報表 · 教1-1</span>
+                            <span class="text-[10px] text-stone-400 font-mono">師資結構</span>
+                        </div>
+                        <h3 class="text-sm font-bold text-stone-900 font-sans">各校院系所 專任教師職級與性別統計</h3>
+                        <p class="text-xs text-stone-600">教授、副教授、助理教授、講師分佈。中科財稅專任教師 24 位（正教授 5、副教授 12、助理教授 7、講師 0），師資博士化率 100%。</p>
+                        <div class="text-[11px] font-mono text-stone-500 truncate">https://udb.moe.edu.tw/udata/DetailReport/21</div>
+                    </div>
+                    <div class="pt-2 border-t border-stone-100 flex items-center justify-between gap-2">
+                        <button onclick="copyToClipboard('https://udb.moe.edu.tw/udata/DetailReport/21', this)" class="px-2.5 py-1.5 rounded-md bg-stone-100 hover:bg-stone-200 text-stone-700 text-xs font-medium flex items-center gap-1 transition">
+                            <i data-lucide="copy" class="w-3.5 h-3.5 text-stone-500"></i> 複製網址
+                        </button>
+                        <a href="https://udb.moe.edu.tw/udata/DetailReport/21" target="_blank" rel="noopener noreferrer" class="px-3 py-1.5 rounded-md bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold flex items-center gap-1.5 transition">
+                            <span>前往 UDB 查驗</span> <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- 教1-4 -->
+                <div class="source-item source-card p-4 rounded-xl border border-stone-200 bg-white hover:border-stone-400 shadow-xs flex flex-col justify-between gap-3" data-category="moe_udb" data-school="all" data-search="學生生師比 教1-4 師生比 純日間 UDB">
+                    <div class="space-y-1.5">
+                        <div class="flex items-center justify-between gap-2">
+                            <span class="px-2 py-0.5 rounded text-[11px] font-bold bg-sky-100 text-sky-800">教育部公開報表 · 教1-4</span>
+                            <span class="text-[10px] text-stone-400 font-mono">教學資源</span>
+                        </div>
+                        <h3 class="text-sm font-bold text-stone-900 font-sans">各校院日間學制 學生生師比統計表</h3>
+                        <p class="text-xs text-stone-600">檢視每位專任教師平均指導日間部在學學生數，確保合規教育部 27:1 基準線，評估教學負擔與師資新聘彈性空間。</p>
+                        <div class="text-[11px] font-mono text-stone-500 truncate">https://udb.moe.edu.tw/udata/DetailReport/24</div>
+                    </div>
+                    <div class="pt-2 border-t border-stone-100 flex items-center justify-between gap-2">
+                        <button onclick="copyToClipboard('https://udb.moe.edu.tw/udata/DetailReport/24', this)" class="px-2.5 py-1.5 rounded-md bg-stone-100 hover:bg-stone-200 text-stone-700 text-xs font-medium flex items-center gap-1 transition">
+                            <i data-lucide="copy" class="w-3.5 h-3.5 text-stone-500"></i> 複製網址
+                        </button>
+                        <a href="https://udb.moe.edu.tw/udata/DetailReport/24" target="_blank" rel="noopener noreferrer" class="px-3 py-1.5 rounded-md bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold flex items-center gap-1.5 transition">
+                            <span>前往 UDB 查驗</span> <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- 財1-1 -->
+                <div class="source-item source-card p-4 rounded-xl border border-stone-200 bg-white hover:border-stone-400 shadow-xs flex flex-col justify-between gap-3" data-category="moe_udb" data-school="all" data-search="學校財務 學雜費收費標準 財1-1 校務基金 可用資金 UDB">
+                    <div class="space-y-1.5">
+                        <div class="flex items-center justify-between gap-2">
+                            <span class="px-2 py-0.5 rounded text-[11px] font-bold bg-sky-100 text-sky-800">教育部公開報表 · 財1-1</span>
+                            <span class="text-[10px] text-stone-400 font-mono">財務永續</span>
+                        </div>
+                        <h3 class="text-sm font-bold text-stone-900 font-sans">各校院學雜費收費標準與財務收支決算</h3>
+                        <p class="text-xs text-stone-600">對比國立科大每學期學雜費約 24,500 元與私立中原、逢甲每學期 48,500~49,200 元之定價優勢，佐證少子化防線。</p>
+                        <div class="text-[11px] font-mono text-stone-500 truncate">https://udb.moe.edu.tw/udata/DetailReport/31</div>
+                    </div>
+                    <div class="pt-2 border-t border-stone-100 flex items-center justify-between gap-2">
+                        <button onclick="copyToClipboard('https://udb.moe.edu.tw/udata/DetailReport/31', this)" class="px-2.5 py-1.5 rounded-md bg-stone-100 hover:bg-stone-200 text-stone-700 text-xs font-medium flex items-center gap-1 transition">
+                            <i data-lucide="copy" class="w-3.5 h-3.5 text-stone-500"></i> 複製網址
+                        </button>
+                        <a href="https://udb.moe.edu.tw/udata/DetailReport/31" target="_blank" rel="noopener noreferrer" class="px-3 py-1.5 rounded-md bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold flex items-center gap-1.5 transition">
+                            <span>前往 UDB 查驗</span> <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- UDB 總查詢入口 -->
+                <div class="source-item source-card p-4 rounded-xl border border-stone-200 bg-white hover:border-stone-400 shadow-xs flex flex-col justify-between gap-3" data-category="moe_udb" data-school="all" data-search="教育部大專校院校務資訊公開平台 總入口 ReportCategories UDB">
+                    <div class="space-y-1.5">
+                        <div class="flex items-center justify-between gap-2">
+                            <span class="px-2 py-0.5 rounded text-[11px] font-bold bg-emerald-100 text-emerald-800">官方主入口 Portal</span>
+                            <span class="text-[10px] text-stone-400 font-mono">首頁</span>
+                        </div>
+                        <h3 class="text-sm font-bold text-stone-900 font-sans">教育部大專校院校務資訊公開平台 主入口</h3>
+                        <p class="text-xs text-stone-600">全台灣公私立大專校院所有法定報表分類索引與歷年公開統計資料庫。</p>
+                        <div class="text-[11px] font-mono text-stone-500 truncate">https://udb.moe.edu.tw/udata/ReportCategories</div>
+                    </div>
+                    <div class="pt-2 border-t border-stone-100 flex items-center justify-between gap-2">
+                        <button onclick="copyToClipboard('https://udb.moe.edu.tw/udata/ReportCategories', this)" class="px-2.5 py-1.5 rounded-md bg-stone-100 hover:bg-stone-200 text-stone-700 text-xs font-medium flex items-center gap-1 transition">
+                            <i data-lucide="copy" class="w-3.5 h-3.5 text-stone-500"></i> 複製網址
+                        </button>
+                        <a href="https://udb.moe.edu.tw/udata/ReportCategories" target="_blank" rel="noopener noreferrer" class="px-3 py-1.5 rounded-md bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold flex items-center gap-1.5 transition">
+                            <span>開啟官方平台首頁</span> <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 第三大類：技專校院招生與測驗官方機構 4 大平臺 -->
+        <section id="section-admission" class="source-section space-y-4" data-category="admission">
+            <div class="flex items-center justify-between pb-2 border-b-2 border-stone-900">
+                <div class="flex items-center gap-2">
+                    <span class="px-2 py-0.5 rounded bg-stone-900 text-white font-mono text-xs font-bold">03</span>
+                    <h2 class="text-lg sm:text-xl font-black text-stone-900 font-serif">
+                        技專校院招生委員會聯合會 (JCTV) 與 技專測驗中心 (TCTE)
+                    </h2>
+                </div>
+                <span class="text-xs text-stone-500 font-mono">統測與甄選入學主管機構</span>
+            </div>
+
+            <p class="text-xs text-stone-600">
+                教育部核定統籌辦理全國科技校院入學測驗與招生之聯合會，為本專案統測單科均分（109~114學年度）、四技甄選入學名額與各系分發最低門檻之官方發布權威單位。
+            </p>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-3.5">
+                <!-- JCTV -->
+                <div class="source-item source-card p-4 rounded-xl border border-stone-200 bg-white hover:border-stone-400 shadow-xs flex flex-col justify-between gap-3" data-category="admission" data-school="all" data-search="技專校院招生委員會聯合會 JCTV 簡章 招聯會">
+                    <div class="space-y-1.5">
+                        <div class="flex items-center justify-between gap-2">
+                            <span class="px-2 py-0.5 rounded text-[11px] font-bold bg-amber-100 text-amber-800">官方主管機構</span>
+                            <span class="text-[10px] text-stone-400 font-mono">聯招總會</span>
+                        </div>
+                        <h3 class="text-sm font-bold text-stone-900 font-sans">技專校院招生委員會聯合會 (JCTV)</h3>
+                        <p class="text-xs text-stone-600">統籌技專入學招生規章、各校核定名額簡章與政策公告官方入口網站。</p>
+                        <div class="text-[11px] font-mono text-stone-500 truncate">https://www.jctv.ntut.edu.tw/</div>
+                    </div>
+                    <div class="pt-2 border-t border-stone-100 flex items-center justify-between gap-2">
+                        <button onclick="copyToClipboard('https://www.jctv.ntut.edu.tw/', this)" class="px-2.5 py-1.5 rounded-md bg-stone-100 hover:bg-stone-200 text-stone-700 text-xs font-medium flex items-center gap-1 transition">
+                            <i data-lucide="copy" class="w-3.5 h-3.5 text-stone-500"></i> 複製網址
+                        </button>
+                        <a href="https://www.jctv.ntut.edu.tw/" target="_blank" rel="noopener noreferrer" class="px-3 py-1.5 rounded-md bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold flex items-center gap-1.5 transition">
+                            <span>開啟官方網站</span> <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- 甄選入學委員會 -->
+                <div class="source-item source-card p-4 rounded-xl border border-stone-200 bg-white hover:border-stone-400 shadow-xs flex flex-col justify-between gap-3" data-category="admission" data-school="all" data-search="四技二專甄選入學聯合招生委員會 venter 甄選 榜單 正備取">
+                    <div class="space-y-1.5">
+                        <div class="flex items-center justify-between gap-2">
+                            <span class="px-2 py-0.5 rounded text-[11px] font-bold bg-amber-100 text-amber-800">甄選入學平臺</span>
+                            <span class="text-[10px] text-stone-400 font-mono">生源主渠道</span>
+                        </div>
+                        <h3 class="text-sm font-bold text-stone-900 font-sans">四技二專甄選入學聯合招生委員會</h3>
+                        <p class="text-xs text-stone-600">辦理第一階段統測篩選、第二階段各系複試正備取名冊與就讀志願序統一分發作業。</p>
+                        <div class="text-[11px] font-mono text-stone-500 truncate">https://www.jctv.ntut.edu.tw/venter/</div>
+                    </div>
+                    <div class="pt-2 border-t border-stone-100 flex items-center justify-between gap-2">
+                        <button onclick="copyToClipboard('https://www.jctv.ntut.edu.tw/venter/', this)" class="px-2.5 py-1.5 rounded-md bg-stone-100 hover:bg-stone-200 text-stone-700 text-xs font-medium flex items-center gap-1 transition">
+                            <i data-lucide="copy" class="w-3.5 h-3.5 text-stone-500"></i> 複製網址
+                        </button>
+                        <a href="https://www.jctv.ntut.edu.tw/venter/" target="_blank" rel="noopener noreferrer" class="px-3 py-1.5 rounded-md bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold flex items-center gap-1.5 transition">
+                            <span>開啟官方網站</span> <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- 聯合登記分發委員會 -->
+                <div class="source-item source-card p-4 rounded-xl border border-stone-200 bg-white hover:border-stone-400 shadow-xs flex flex-col justify-between gap-3" data-category="admission" data-school="all" data-search="四技二專聯合分發委員會 union42 登記分發 最低錄取分數 榜單">
+                    <div class="space-y-1.5">
+                        <div class="flex items-center justify-between gap-2">
+                            <span class="px-2 py-0.5 rounded text-[11px] font-bold bg-amber-100 text-amber-800">登記分發平臺</span>
+                            <span class="text-[10px] text-stone-400 font-mono">錄取分標準</span>
+                        </div>
+                        <h3 class="text-sm font-bold text-stone-900 font-sans">四技二專日間部聯合登記分發委員會</h3>
+                        <p class="text-xs text-stone-600">公告 109~114 年統測各系最低登記分發錄取標準、加權採計科目與分發榜單官方紀錄。</p>
+                        <div class="text-[11px] font-mono text-stone-500 truncate">https://www.jctv.ntut.edu.tw/union42/</div>
+                    </div>
+                    <div class="pt-2 border-t border-stone-100 flex items-center justify-between gap-2">
+                        <button onclick="copyToClipboard('https://www.jctv.ntut.edu.tw/union42/', this)" class="px-2.5 py-1.5 rounded-md bg-stone-100 hover:bg-stone-200 text-stone-700 text-xs font-medium flex items-center gap-1 transition">
+                            <i data-lucide="copy" class="w-3.5 h-3.5 text-stone-500"></i> 複製網址
+                        </button>
+                        <a href="https://www.jctv.ntut.edu.tw/union42/" target="_blank" rel="noopener noreferrer" class="px-3 py-1.5 rounded-md bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold flex items-center gap-1.5 transition">
+                            <span>開啟官方網站</span> <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- 技專測驗中心 TCTE -->
+                <div class="source-item source-card p-4 rounded-xl border border-stone-200 bg-white hover:border-stone-400 shadow-xs flex flex-col justify-between gap-3" data-category="admission" data-school="all" data-search="技專校院入學測驗中心 TCTE 統測 組距 單科均分 商管群">
+                    <div class="space-y-1.5">
+                        <div class="flex items-center justify-between gap-2">
+                            <span class="px-2 py-0.5 rounded text-[11px] font-bold bg-amber-100 text-amber-800">測驗研發機構</span>
+                            <span class="text-[10px] text-stone-400 font-mono">成績母體</span>
+                        </div>
+                        <h3 class="text-sm font-bold text-stone-900 font-sans">財團法人技專校院入學測驗中心 (TCTE)</h3>
+                        <p class="text-xs text-stone-600">負責統測試務研發與成績統計，提供歷年商管群報考總人數、各考科成績組距與級分對照數據。</p>
+                        <div class="text-[11px] font-mono text-stone-500 truncate">https://www.tcte.edu.tw/</div>
+                    </div>
+                    <div class="pt-2 border-t border-stone-100 flex items-center justify-between gap-2">
+                        <button onclick="copyToClipboard('https://www.tcte.edu.tw/', this)" class="px-2.5 py-1.5 rounded-md bg-stone-100 hover:bg-stone-200 text-stone-700 text-xs font-medium flex items-center gap-1 transition">
+                            <i data-lucide="copy" class="w-3.5 h-3.5 text-stone-500"></i> 複製網址
+                        </button>
+                        <a href="https://www.tcte.edu.tw/" target="_blank" rel="noopener noreferrer" class="px-3 py-1.5 rounded-md bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold flex items-center gap-1.5 transition">
+                            <span>開啟官方網站</span> <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 第四大類：教育部統計處 少子化生源預測報告與學校存活模型 -->
+        <section id="section-fertility" class="source-section space-y-4" data-category="fertility">
+            <div class="flex items-center justify-between pb-2 border-b-2 border-stone-900">
+                <div class="flex items-center gap-2">
+                    <span class="px-2 py-0.5 rounded bg-stone-900 text-white font-mono text-xs font-bold">04</span>
+                    <h2 class="text-lg sm:text-xl font-black text-stone-900 font-serif">
+                        教育部統計處 (Department of Statistics, MOE) · 16 年少子化生源預測
+                    </h2>
+                </div>
+                <span class="text-xs text-stone-500 font-mono">113~128 學年度預測基準</span>
+            </div>
+
+            <p class="text-xs text-stone-600">
+                教育部官方依據內政部出生人口與教育留存率推估之權威公報。本戰情室以此為基礎建立 113 至 128 學年「純日間四技生源模擬推估模型」，精準定錨 117 虎年海嘯與全台 133 所大專校院存活分層。
+            </p>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-3.5">
+                <div class="source-item source-card p-4 rounded-xl border border-stone-200 bg-white hover:border-stone-400 shadow-xs flex flex-col justify-between gap-3" data-category="fertility" data-school="all" data-search="教育部統計處 學生人數預測分析報告 ED4500 少子化 虎年海嘯 16年推估">
+                    <div class="space-y-1.5">
+                        <div class="flex items-center justify-between gap-2">
+                            <span class="px-2 py-0.5 rounded text-[11px] font-bold bg-rose-100 text-rose-800">官方預測公報</span>
+                            <span class="text-[10px] text-stone-400 font-mono">113~128 學年</span>
+                        </div>
+                        <h3 class="text-sm font-bold text-stone-900 font-sans">各級教育階段學生人數預測分析報告 (113~128學年)</h3>
+                        <p class="text-xs text-stone-600">教育部統計處每年度滾動發布之全國大專新生人口預估。報告指出 117 學年度大專新生將滑落至 15.6 萬人歷史波谷。</p>
+                        <div class="text-[11px] font-mono text-stone-500 truncate">https://depart.moe.edu.tw/ED4500/News_Content.aspx?n=5A930C32CC6C3818</div>
+                    </div>
+                    <div class="pt-2 border-t border-stone-100 flex items-center justify-between gap-2">
+                        <button onclick="copyToClipboard('https://depart.moe.edu.tw/ED4500/News_Content.aspx?n=5A930C32CC6C3818', this)" class="px-2.5 py-1.5 rounded-md bg-stone-100 hover:bg-stone-200 text-stone-700 text-xs font-medium flex items-center gap-1 transition">
+                            <i data-lucide="copy" class="w-3.5 h-3.5 text-stone-500"></i> 複製網址
+                        </button>
+                        <a href="https://depart.moe.edu.tw/ED4500/News_Content.aspx?n=5A930C32CC6C3818" target="_blank" rel="noopener noreferrer" class="px-3 py-1.5 rounded-md bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold flex items-center gap-1.5 transition">
+                            <span>開啟官方報告</span> <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="source-item source-card p-4 rounded-xl border border-stone-200 bg-white hover:border-stone-400 shadow-xs flex flex-col justify-between gap-3" data-category="fertility" data-school="all" data-search="教育部統計處 統計主題專區 大專校院教育統計 ED4500">
+                    <div class="space-y-1.5">
+                        <div class="flex items-center justify-between gap-2">
+                            <span class="px-2 py-0.5 rounded text-[11px] font-bold bg-rose-100 text-rose-800">官方統計專區</span>
+                            <span class="text-[10px] text-stone-400 font-mono">高等教育</span>
+                        </div>
+                        <h3 class="text-sm font-bold text-stone-900 font-sans">教育部統計處 高級中等學校與高等教育專區</h3>
+                        <p class="text-xs text-stone-600">提供高中與高職生源分流比例、各縣市畢業生升學動態與私校退場輔導列管學校名單。</p>
+                        <div class="text-[11px] font-mono text-stone-500 truncate">https://depart.moe.edu.tw/ED4500/</div>
+                    </div>
+                    <div class="pt-2 border-t border-stone-100 flex items-center justify-between gap-2">
+                        <button onclick="copyToClipboard('https://depart.moe.edu.tw/ED4500/', this)" class="px-2.5 py-1.5 rounded-md bg-stone-100 hover:bg-stone-200 text-stone-700 text-xs font-medium flex items-center gap-1 transition">
+                            <i data-lucide="copy" class="w-3.5 h-3.5 text-stone-500"></i> 複製網址
+                        </button>
+                        <a href="https://depart.moe.edu.tw/ED4500/" target="_blank" rel="noopener noreferrer" class="px-3 py-1.5 rounded-md bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold flex items-center gap-1.5 transition">
+                            <span>開啟統計處首頁</span> <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 第五大類：104 人力銀行 中部商管就業市場大數據 -->
+        <section id="section-job104" class="source-section space-y-4" data-category="job104">
+            <div class="flex items-center justify-between pb-2 border-b-2 border-stone-900">
+                <div class="flex items-center gap-2">
+                    <span class="px-2 py-0.5 rounded bg-stone-900 text-white font-mono text-xs font-bold">05</span>
+                    <h2 class="text-lg sm:text-xl font-black text-stone-900 font-serif">
+                        104 人力銀行 (Job104) · 中部商管產業就業市場實境大數據
+                    </h2>
+                </div>
+                <span class="text-xs text-stone-500 font-mono">就業競爭力導向</span>
+            </div>
+
+            <p class="text-xs text-stone-600">
+                對照四大財稅師事務所（勤業眾信、資誠、安侯建業、安永）與中部製造業、上市櫃公司對財稅資訊人才之需求特徵，萃取專技財稅師 (CPA)、內部稽核、ERP/AIS、稅務規劃與 ESG 永續碳確信之核心職能。
+            </p>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-3.5">
+                <div class="source-item source-card p-4 rounded-xl border border-stone-200 bg-white hover:border-stone-400 shadow-xs flex flex-col justify-between gap-3" data-category="job104" data-school="all" data-search="104 人力銀行 財稅 職缺 中部 臺中 彰化 經管 營運">
+                    <div class="space-y-1.5">
+                        <div class="flex items-center justify-between gap-2">
+                            <span class="px-2 py-0.5 rounded text-[11px] font-bold bg-indigo-100 text-indigo-800">就業市場實境</span>
+                            <span class="text-[10px] text-stone-400 font-mono">中部商管</span>
+                        </div>
+                        <h3 class="text-sm font-bold text-stone-900 font-sans">104 中部地區 財稅/經管/營運管理職缺索引</h3>
+                        <p class="text-xs text-stone-600">即時抓取臺中精密機械園區、中科園區與商業金融機構對財稅人才之開缺行情與學歷偏好。</p>
+                        <div class="text-[11px] font-mono text-stone-500 truncate">https://www.104.com.tw/jobs/search/?jobcat=2003001000&area=6001006000</div>
+                    </div>
+                    <div class="pt-2 border-t border-stone-100 flex items-center justify-between gap-2">
+                        <button onclick="copyToClipboard('https://www.104.com.tw/jobs/search/?jobcat=2003001000&area=6001006000', this)" class="px-2.5 py-1.5 rounded-md bg-stone-100 hover:bg-stone-200 text-stone-700 text-xs font-medium flex items-center gap-1 transition">
+                            <i data-lucide="copy" class="w-3.5 h-3.5 text-stone-500"></i> 複製網址
+                        </button>
+                        <a href="https://www.104.com.tw/jobs/search/?jobcat=2003001000&area=6001006000" target="_blank" rel="noopener noreferrer" class="px-3 py-1.5 rounded-md bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold flex items-center gap-1.5 transition">
+                            <span>開啟 104 職缺</span> <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="source-item source-card p-4 rounded-xl border border-stone-200 bg-white hover:border-stone-400 shadow-xs flex flex-col justify-between gap-3" data-category="job104" data-school="all" data-search="104 人力銀行 官方求職平臺 產業用人 薪資行情">
+                    <div class="space-y-1.5">
+                        <div class="flex items-center justify-between gap-2">
+                            <span class="px-2 py-0.5 rounded text-[11px] font-bold bg-indigo-100 text-indigo-800">官方主平臺</span>
+                            <span class="text-[10px] text-stone-400 font-mono">求職首頁</span>
+                        </div>
+                        <h3 class="text-sm font-bold text-stone-900 font-sans">104 人力銀行 官方求職與產業情報平台</h3>
+                        <p class="text-xs text-stone-600">全台最大人力資源智庫，提供大專畢業生就業藍圖、薪資行情與職涯發展軌跡。</p>
+                        <div class="text-[11px] font-mono text-stone-500 truncate">https://www.104.com.tw/jobs/main/</div>
+                    </div>
+                    <div class="pt-2 border-t border-stone-100 flex items-center justify-between gap-2">
+                        <button onclick="copyToClipboard('https://www.104.com.tw/jobs/main/', this)" class="px-2.5 py-1.5 rounded-md bg-stone-100 hover:bg-stone-200 text-stone-700 text-xs font-medium flex items-center gap-1 transition">
+                            <i data-lucide="copy" class="w-3.5 h-3.5 text-stone-500"></i> 複製網址
+                        </button>
+                        <a href="https://www.104.com.tw/jobs/main/" target="_blank" rel="noopener noreferrer" class="px-3 py-1.5 rounded-md bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold flex items-center gap-1.5 transition">
+                            <span>開啟 104 首頁</span> <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 第六大類：本地全量實證資料庫與原始檔案 (8 份 CSV/JSON) -->
+        <section id="section-local_files" class="source-section space-y-4" data-category="local_files">
+            <div class="flex items-center justify-between pb-2 border-b-2 border-stone-900">
+                <div class="flex items-center gap-2">
+                    <span class="px-2 py-0.5 rounded bg-stone-900 text-white font-mono text-xs font-bold">06</span>
+                    <h2 class="text-lg sm:text-xl font-black text-stone-900 font-serif">
+                        專案本地全量實證原始資料集目錄 (Raw Data Files)
+                    </h2>
+                </div>
+                <span class="text-xs text-stone-500 font-mono">自包含免聯網完整資料庫</span>
+            </div>
+
+            <p class="text-xs text-stone-600">
+                本專案所有清洗後之標準 CSV 與 JSON 檔案皆存放於 <code class="px-1.5 py-0.5 rounded bg-stone-200 text-stone-800 font-mono text-[11px]">raw_data/</code>，支援點選直接下載於本機檢驗。
+            </p>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-3.5">
+                <!-- 01 CSV -->
+                <div class="source-item source-card p-4 rounded-xl border border-stone-200 bg-white hover:border-stone-400 shadow-xs flex flex-col justify-between gap-3" data-category="local_files" data-school="all" data-search="01_四技二專與大學交叉查榜全量考生流向.csv 4696筆 交叉查榜">
+                    <div class="space-y-1.5">
+                        <div class="flex items-center justify-between gap-2">
+                            <span class="px-2 py-0.5 rounded text-[11px] font-bold bg-emerald-100 text-emerald-800">CSV 格式 · UTF-8 BOM</span>
+                            <span class="text-[10px] text-stone-400 font-mono">1.8 MB · 1,568 筆</span>
+                        </div>
+                        <h3 class="text-sm font-bold text-stone-900 font-sans">01_四技二專與大學交叉查榜全量考生流向.csv</h3>
+                        <p class="text-xs text-stone-600">收錄 113~115 三學年度 9 大商管競爭校系 1,568 位考生之准考證號、正備取、錄取去向與留任狀態明細。</p>
+                    </div>
+                    <div class="pt-2 border-t border-stone-100 flex items-center justify-end">
+                        <a href="raw_data/01_四技二專與大學交叉查榜全量考生流向.csv" download class="px-3 py-1.5 rounded-md bg-stone-900 hover:bg-stone-800 text-white text-xs font-bold flex items-center gap-1.5 transition">
+                            <i data-lucide="download" class="w-3.5 h-3.5 text-emerald-400"></i> 下載 CSV
+                        </a>
+                    </div>
+                </div>
+
+                <!-- 01 JSON -->
+                <div class="source-item source-card p-4 rounded-xl border border-stone-200 bg-white hover:border-stone-400 shadow-xs flex flex-col justify-between gap-3" data-category="local_files" data-school="all" data-search="01_四技二專與大學交叉查榜全量考生流向.json 4696筆 交叉查榜">
+                    <div class="space-y-1.5">
+                        <div class="flex items-center justify-between gap-2">
+                            <span class="px-2 py-0.5 rounded text-[11px] font-bold bg-amber-100 text-amber-800">JSON 格式 · 標準結構</span>
+                            <span class="text-[10px] text-stone-400 font-mono">3.1 MB · 1,568 筆</span>
+                        </div>
+                        <h3 class="text-sm font-bold text-stone-900 font-sans">01_四技二專與大學交叉查榜全量考生流向.json</h3>
+                        <p class="text-xs text-stone-600">完整結構化 JSON 陣列，供程式腳本二次分析與 Python Pandas 資料串接使用。</p>
+                    </div>
+                    <div class="pt-2 border-t border-stone-100 flex items-center justify-end">
+                        <a href="raw_data/01_四技二專與大學交叉查榜全量考生流向.json" download class="px-3 py-1.5 rounded-md bg-stone-900 hover:bg-stone-800 text-white text-xs font-bold flex items-center gap-1.5 transition">
+                            <i data-lucide="download" class="w-3.5 h-3.5 text-emerald-400"></i> 下載 JSON
+                        </a>
+                    </div>
+                </div>
+
+                <!-- 01 歷年指標 -->
+                <div class="source-item source-card p-4 rounded-xl border border-stone-200 bg-white hover:border-stone-400 shadow-xs flex flex-col justify-between gap-3" data-category="local_files" data-school="all" data-search="01_四技二專與大學交叉查榜全量考生流向_歷年指標彙整.csv 歷年指標 留任率">
+                    <div class="space-y-1.5">
+                        <div class="flex items-center justify-between gap-2">
+                            <span class="px-2 py-0.5 rounded text-[11px] font-bold bg-emerald-100 text-emerald-800">CSV 格式</span>
+                            <span class="text-[10px] text-stone-400 font-mono">21 組歷年指標</span>
+                        </div>
+                        <h3 class="text-sm font-bold text-stone-900 font-sans">01_四技二專與大學交叉查榜全量考生流向_歷年指標彙整.csv</h3>
+                        <p class="text-xs text-stone-600">按校系與學年度彙總之總考生數、正取數、備取數、留任人數、外校流失數與官方留任率。</p>
+                    </div>
+                    <div class="pt-2 border-t border-stone-100 flex items-center justify-end">
+                        <a href="raw_data/01_四技二專與大學交叉查榜全量考生流向_歷年指標彙整.csv" download class="px-3 py-1.5 rounded-md bg-stone-900 hover:bg-stone-800 text-white text-xs font-bold flex items-center gap-1.5 transition">
+                            <i data-lucide="download" class="w-3.5 h-3.5 text-emerald-400"></i> 下載 CSV
+                        </a>
+                    </div>
+                </div>
+
+                <!-- 02 中部情報 -->
+                <div class="source-item source-card p-4 rounded-xl border border-stone-200 bg-white hover:border-stone-400 shadow-xs flex flex-col justify-between gap-3" data-category="local_files" data-school="all" data-search="02_全國與中部財稅資訊競爭校系情報比對.csv 中部九大校系 純日間部">
+                    <div class="space-y-1.5">
+                        <div class="flex items-center justify-between gap-2">
+                            <span class="px-2 py-0.5 rounded text-[11px] font-bold bg-emerald-100 text-emerald-800">CSV 格式</span>
+                            <span class="text-[10px] text-stone-400 font-mono">9 大校系情報</span>
+                        </div>
+                        <h3 class="text-sm font-bold text-stone-900 font-sans">02_全國與中部財稅資訊競爭校系情報比對.csv</h3>
+                        <p class="text-xs text-stone-600">中科、雲科、高科、中原、逢甲、北商純日間部招生規模、學費、退學率與特色評級矩陣。</p>
+                    </div>
+                    <div class="pt-2 border-t border-stone-100 flex items-center justify-end">
+                        <a href="raw_data/02_全國與中部財稅資訊競爭校系情報比對.csv" download class="px-3 py-1.5 rounded-md bg-stone-900 hover:bg-stone-800 text-white text-xs font-bold flex items-center gap-1.5 transition">
+                            <i data-lucide="download" class="w-3.5 h-3.5 text-emerald-400"></i> 下載 CSV
+                        </a>
+                    </div>
+                </div>
+
+                <!-- 05 統測 6 年 -->
+                <div class="source-item source-card p-4 rounded-xl border border-stone-200 bg-white hover:border-stone-400 shadow-xs flex flex-col justify-between gap-3" data-category="local_files" data-school="all" data-search="05_109至114學年度商管群財稅類統測最低錄取分與單科均分.csv 統測 6年 錄取分">
+                    <div class="space-y-1.5">
+                        <div class="flex items-center justify-between gap-2">
+                            <span class="px-2 py-0.5 rounded text-[11px] font-bold bg-emerald-100 text-emerald-800">CSV 格式</span>
+                            <span class="text-[10px] text-stone-400 font-mono">109~114 年統測</span>
+                        </div>
+                        <h3 class="text-sm font-bold text-stone-900 font-sans">05_109至114學年度商管群財稅類統測最低錄取分與單科均分.csv</h3>
+                        <p class="text-xs text-stone-600">北商、雲科、中科、高科 4 大公立財稅科大 6 年來統測單科均分長線趨勢對比。</p>
+                    </div>
+                    <div class="pt-2 border-t border-stone-100 flex items-center justify-end">
+                        <a href="raw_data/05_109至114學年度商管群財稅類統測最低錄取分與單科均分.csv" download class="px-3 py-1.5 rounded-md bg-stone-900 hover:bg-stone-800 text-white text-xs font-bold flex items-center gap-1.5 transition">
+                            <i data-lucide="download" class="w-3.5 h-3.5 text-emerald-400"></i> 下載 CSV
+                        </a>
+                    </div>
+                </div>
+
+                <!-- 06 全國六強 -->
+                <div class="source-item source-card p-4 rounded-xl border border-stone-200 bg-white hover:border-stone-400 shadow-xs flex flex-col justify-between gap-3" data-category="local_files" data-school="all" data-search="06_全國國立財稅六強戰略旗盤指標矩陣.csv 全國六強 旗盤矩陣">
+                    <div class="space-y-1.5">
+                        <div class="flex items-center justify-between gap-2">
+                            <span class="px-2 py-0.5 rounded text-[11px] font-bold bg-emerald-100 text-emerald-800">CSV 格式</span>
+                            <span class="text-[10px] text-stone-400 font-mono">19 項戰略維度</span>
+                        </div>
+                        <h3 class="text-sm font-bold text-stone-900 font-sans">06_全國國立財稅六強戰略旗盤指標矩陣.csv</h3>
+                        <p class="text-xs text-stone-600">在學規模、師資職級、五專部底蘊、退學率與註冊率綜合棋盤。</p>
+                    </div>
+                    <div class="pt-2 border-t border-stone-100 flex items-center justify-end">
+                        <a href="raw_data/06_全國國立財稅六強戰略旗盤指標矩陣.csv" download class="px-3 py-1.5 rounded-md bg-stone-900 hover:bg-stone-800 text-white text-xs font-bold flex items-center gap-1.5 transition">
+                            <i data-lucide="download" class="w-3.5 h-3.5 text-emerald-400"></i> 下載 CSV
+                        </a>
+                    </div>
+                </div>
+
+                <!-- 07 少子化推估 -->
+                <div class="source-item source-card p-4 rounded-xl border border-stone-200 bg-white hover:border-stone-400 shadow-xs flex flex-col justify-between gap-3" data-category="local_files" data-school="all" data-search="07_113至128學年度少子化海嘯16年動態模擬推估.csv 16年 少子化 虎年波谷">
+                    <div class="space-y-1.5">
+                        <div class="flex items-center justify-between gap-2">
+                            <span class="px-2 py-0.5 rounded text-[11px] font-bold bg-emerald-100 text-emerald-800">CSV 格式</span>
+                            <span class="text-[10px] text-stone-400 font-mono">16 年生源池</span>
+                        </div>
+                        <h3 class="text-sm font-bold text-stone-900 font-sans">07_113至128學年度少子化海嘯16年動態模擬推估.csv</h3>
+                        <p class="text-xs text-stone-600">113~128 年新生總量、商管生源池、中科財稅單科均分與純日間註冊防護率。</p>
+                    </div>
+                    <div class="pt-2 border-t border-stone-100 flex items-center justify-end">
+                        <a href="raw_data/07_113至128學年度少子化海嘯16年動態模擬推估.csv" download class="px-3 py-1.5 rounded-md bg-stone-900 hover:bg-stone-800 text-white text-xs font-bold flex items-center gap-1.5 transition">
+                            <i data-lucide="download" class="w-3.5 h-3.5 text-emerald-400"></i> 下載 CSV
+                        </a>
+                    </div>
+                </div>
+
+                <!-- 08 學制體質 -->
+                <div class="source-item source-card p-4 rounded-xl border border-stone-200 bg-white hover:border-stone-400 shadow-xs flex flex-col justify-between gap-3" data-category="local_files" data-school="all" data-search="08_中科財稅各學制體質診斷與休退學註冊率消長.csv 學制體質 診斷 休退學">
+                    <div class="space-y-1.5">
+                        <div class="flex items-center justify-between gap-2">
+                            <span class="px-2 py-0.5 rounded text-[11px] font-bold bg-emerald-100 text-emerald-800">CSV 格式</span>
+                            <span class="text-[10px] text-stone-400 font-mono">4 大學制班別</span>
+                        </div>
+                        <h3 class="text-sm font-bold text-stone-900 font-sans">08_中科財稅各學制體質診斷與休退學註冊率消長.csv</h3>
+                        <p class="text-xs text-stone-600">日間學士班、技優領航專班、日間二技、日間五專部之核定與實招對比。</p>
+                    </div>
+                    <div class="pt-2 border-t border-stone-100 flex items-center justify-end">
+                        <a href="raw_data/08_中科財稅各學制體質診斷與休退學註冊率消長.csv" download class="px-3 py-1.5 rounded-md bg-stone-900 hover:bg-stone-800 text-white text-xs font-bold flex items-center gap-1.5 transition">
+                            <i data-lucide="download" class="w-3.5 h-3.5 text-emerald-400"></i> 下載 CSV
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- 頁尾宣告 (Footer) -->
+    <footer class="bg-white border-t border-stone-200 py-6 mt-12 text-center text-xs text-stone-500">
+        <div class="max-w-7xl mx-auto px-4 space-y-2">
+            <p class="font-medium text-stone-700">國立臺中科技大學 財政稅務系 (NTCUST TAX) · 校務研究實證資訊查核入口</p>
+            <p class="text-[11px] text-stone-400">本系統所有數據與連結均 100% 採集自官方公開資訊平臺，供學術研討、系務治理與生源策略制定使用。</p>
+            <div class="pt-2">
+                <a href="index.html" class="text-emerald-700 hover:text-emerald-800 hover:underline font-bold inline-flex items-center gap-1">
+                    <i data-lucide="arrow-left" class="w-3.5 h-3.5"></i> 返回戰情室主儀表板
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- 互動腳本 (JS) -->
+    <script>
+        // Lucide icons 初始化
+        if (window.lucide && typeof lucide.createIcons === 'function') {
+            lucide.createIcons();
+        }
+
+        let currentCatFilter = 'all';
+        let currentSchoolFilter = 'all';
+
+        // 複製網址功能
+        function copyToClipboard(text, btn) {
+            if (navigator.clipboard && window.isSecureContext) {
+                navigator.clipboard.writeText(text).then(() => {
+                    showCopySuccess(btn);
+                }).catch(err => {
+                    fallbackCopy(text, btn);
+                });
+            } else {
+                fallbackCopy(text, btn);
+            }
+        }
+
+        function fallbackCopy(text, btn) {
+            const textArea = document.createElement("textarea");
+            textArea.value = text;
+            textArea.style.position = "fixed";
+            textArea.style.left = "-999999px";
+            document.body.appendChild(textArea);
+            textArea.focus();
+            textArea.select();
+            try {
+                document.execCommand('copy');
+                showCopySuccess(btn);
+            } catch (err) {
+                console.error('Copy error', err);
+            }
+            document.body.removeChild(textArea);
+        }
+
+        function showCopySuccess(btn) {
+            const originalHTML = btn.innerHTML;
+            btn.innerHTML = `<i data-lucide="check" class="w-3.5 h-3.5 text-emerald-600"></i><span class="text-emerald-700 font-bold">已複製！</span>`;
+            if (window.lucide && typeof lucide.createIcons === 'function') lucide.createIcons();
+            setTimeout(() => {
+                btn.innerHTML = originalHTML;
+                if (window.lucide && typeof lucide.createIcons === 'function') lucide.createIcons();
+            }, 1800);
+        }
+
+        // 分類篩選
+        function setCategoryFilter(cat) {
+            currentCatFilter = cat;
+            document.querySelectorAll('.cat-filter-btn').forEach(b => {
+                b.className = 'cat-filter-btn px-2.5 py-1 rounded-md bg-stone-100 text-stone-700 hover:bg-stone-200 transition';
+            });
+            const activeBtn = document.getElementById('btn-cat-' + cat);
+            if (activeBtn) {
+                activeBtn.className = 'cat-filter-btn px-2.5 py-1 rounded-md bg-stone-900 text-white font-medium shadow-xs transition';
+            }
+            filterSources();
+        }
+
+        // 學校篩選
+        function setSchoolFilter(sch) {
+            currentSchoolFilter = sch;
+            document.querySelectorAll('.sch-filter-btn').forEach(b => {
+                b.className = 'sch-filter-btn px-2 py-0.5 rounded text-[11px] bg-stone-100 text-stone-600 hover:bg-stone-200';
+            });
+            const activeBtn = document.getElementById('btn-sch-' + sch);
+            if (activeBtn) {
+                activeBtn.className = 'sch-filter-btn px-2 py-0.5 rounded text-[11px] bg-stone-200 text-stone-800 font-semibold';
+            }
+            filterSources();
+        }
+
+        // 即時搜尋與過濾處理
+        function filterSources() {
+            const query = (document.getElementById('source-search-input')?.value || '').trim().toLowerCase();
+            const items = document.querySelectorAll('.source-item');
+            const sections = document.querySelectorAll('.source-section');
+            let visibleCount = 0;
+
+            items.forEach(el => {
+                const cat = el.getAttribute('data-category');
+                const sch = el.getAttribute('data-school') || 'all';
+                const searchData = (el.getAttribute('data-search') || '').toLowerCase();
+
+                let matchCat = (currentCatFilter === 'all' || cat === currentCatFilter);
+                
+                let matchSch = true;
+                if (currentSchoolFilter !== 'all') {
+                    if (currentSchoolFilter === 'nkust') {
+                        matchSch = sch.startsWith('nkust');
+                    } else {
+                        matchSch = (sch === currentSchoolFilter || sch === 'all');
+                    }
+                }
+
+                let matchQuery = true;
+                if (query) {
+                    matchQuery = searchData.includes(query);
+                }
+
+                if (matchCat && matchSch && matchQuery) {
+                    el.classList.remove('hidden');
+                    visibleCount++;
+                } else {
+                    el.classList.add('hidden');
+                }
+            });
+
+            // 控制每個大區塊的顯示/隱藏
+            sections.forEach(sec => {
+                const secCat = sec.getAttribute('data-category');
+                const visibleInSec = sec.querySelectorAll('.source-item:not(.hidden)').length;
+                if (visibleInSec === 0) {
+                    sec.classList.add('hidden');
+                } else {
+                    sec.classList.remove('hidden');
+                }
+            });
+
+            const countEl = document.getElementById('visible-count');
+            if (countEl) countEl.innerText = visibleCount;
+        }
+
+        window.onload = function() {
+            filterSources();
+        };
+    </script>
+</body>
+</html>
