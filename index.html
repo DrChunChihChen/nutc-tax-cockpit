@@ -1460,51 +1460,43 @@
                 <!-- 兩大主模式切換器 (Main Mode Switcher) -->
                 <div class="flex flex-wrap items-center gap-2 mt-5 pt-4 border-t border-stone-200">
                     <button id="m6-mode-btn-single" type="button" onclick="switchM6MainMode('single')" class="px-4 py-2.5 rounded-sm text-xs font-bold transition flex items-center gap-2 bg-stone-900 text-white shadow-xs">
-                        <i data-lucide="compass" class="w-4 h-4 text-sky-400"></i>
-                        <span>模式 1：中科財稅生源流向 (可切換其他五校)</span>
+                        <i data-lucide="compass" class="w-4 h-4 text-teal-400"></i>
+                        <span>模式 1：中科財稅生源流向 (可切換其他三校)</span>
                     </button>
                     <button id="m6-mode-btn-duel" type="button" onclick="switchM6MainMode('duel')" class="px-4 py-2.5 rounded-sm text-xs font-bold transition flex items-center gap-2 bg-stone-100 text-stone-700 hover:bg-stone-200">
                         <i data-lucide="swords" class="w-4 h-4 text-rose-500"></i>
-                        <span>模式 2：六大校系全景對決消長趨勢</span>
+                        <span>模式 2：四大校系全景對決消長趨勢</span>
                     </button>
                 </div>
             </div>
 
             <!-- ==================== 模式 1 容器：各系單獨生源流向 ==================== -->
             <div id="m6-panel-single" class="space-y-6">
-                <!-- 九大校系切換 Tab (預設中科財稅) -->
+                <!-- 四大校系切換 Tab (預設中科財稅) -->
                 <div class="bg-white border border-stone-200 rounded-sm p-3 shadow-xs flex flex-wrap items-center justify-between gap-3">
                     <div class="flex items-center gap-2 flex-wrap">
                         <span class="text-xs font-bold text-stone-500 uppercase tracking-wider font-mono">選擇分析系所：</span>
                         <div class="flex flex-wrap gap-1.5" id="school-tab-container">
-                            <button onclick="switchSchoolFlow('nutc_acc')" id="stab-nutc_acc" class="px-3 py-1.5 text-xs font-bold rounded-sm transition flex items-center gap-1.5 bg-stone-900 text-white">
+                            <button onclick="switchSchoolFlow('nutc_tax')" id="stab-nutc_tax" class="px-3 py-1.5 text-xs font-bold rounded-sm transition flex items-center gap-1.5 bg-stone-900 text-white">
                                 <span>中科大 財稅系</span>
-                                <span class="text-[10px] px-1 py-0.2 rounded bg-stone-700 text-stone-200">525人</span>
+                                <span class="text-[10px] px-1 py-0.2 rounded bg-stone-700 text-stone-200">516人</span>
                             </button>
-                            <button onclick="switchSchoolFlow('yuntech_acc')" id="stab-yuntech_acc" class="px-3 py-1.5 text-xs font-bold rounded-sm transition flex items-center gap-1.5 bg-stone-100 text-stone-700 hover:bg-stone-200">
-                                <span>雲科大 財稅系</span>
-                                <span class="text-[10px] px-1 py-0.2 rounded bg-stone-200 text-stone-600">336人</span>
-                            </button>
-                            <button onclick="switchSchoolFlow('nkust_acc')" id="stab-nkust_acc" class="px-3 py-1.5 text-xs font-bold rounded-sm transition flex items-center gap-1.5 bg-stone-100 text-stone-700 hover:bg-stone-200">
-                                <span>高科大 財稅系</span>
-                                <span class="text-[10px] px-1 py-0.2 rounded bg-stone-200 text-stone-600">499人</span>
-                            </button>
-                            <button onclick="switchSchoolFlow('cycu_acc')" id="stab-cycu_acc" class="px-3 py-1.5 text-xs font-bold rounded-sm transition flex items-center gap-1.5 bg-stone-100 text-stone-700 hover:bg-stone-200">
-                                <span>中原大學 財稅系</span>
-                                <span class="text-[10px] px-1 py-0.2 rounded bg-stone-200 text-stone-600">764人</span>
-                            </button>
-                            <button onclick="switchSchoolFlow('fcu_acc')" id="stab-fcu_acc" class="px-3 py-1.5 text-xs font-bold rounded-sm transition flex items-center gap-1.5 bg-stone-100 text-stone-700 hover:bg-stone-200">
-                                <span>逢甲大學 財稅系</span>
-                                <span class="text-[10px] px-1 py-0.2 rounded bg-stone-200 text-stone-600">751人</span>
-                            </button>
-                            <button onclick="switchSchoolFlow('ntub_acc')" id="stab-ntub_acc" class="px-3 py-1.5 text-xs font-bold rounded-sm transition flex items-center gap-1.5 bg-stone-100 text-stone-700 hover:bg-stone-200">
+                            <button onclick="switchSchoolFlow('ntub_tax')" id="stab-ntub_tax" class="px-3 py-1.5 text-xs font-bold rounded-sm transition flex items-center gap-1.5 bg-stone-100 text-stone-700 hover:bg-stone-200">
                                 <span>北商大 財稅系</span>
-                                <span class="text-[10px] px-1 py-0.2 rounded bg-stone-200 text-stone-600">192人</span>
+                                <span class="text-[10px] px-1 py-0.2 rounded bg-stone-200 text-stone-600">287人</span>
+                            </button>
+                            <button onclick="switchSchoolFlow('nkust_tax')" id="stab-nkust_tax" class="px-3 py-1.5 text-xs font-bold rounded-sm transition flex items-center gap-1.5 bg-stone-100 text-stone-700 hover:bg-stone-200">
+                                <span>高科大 財稅系</span>
+                                <span class="text-[10px] px-1 py-0.2 rounded bg-stone-200 text-stone-600">296人</span>
+                            </button>
+                            <button onclick="switchSchoolFlow('fcu_tax')" id="stab-fcu_tax" class="px-3 py-1.5 text-xs font-bold rounded-sm transition flex items-center gap-1.5 bg-stone-100 text-stone-700 hover:bg-stone-200">
+                                <span>逢甲大學 財稅系</span>
+                                <span class="text-[10px] px-1 py-0.2 rounded bg-stone-200 text-stone-600">469人</span>
                             </button>
                         </div>
                     </div>
                     <div class="text-xs text-stone-500 font-mono" id="school-header-badge">
-                        中科大 財政稅務系 (本系基準 · 525 筆實證)
+                        中科大 財政稅務系 (本系基準 · 516 筆母體)
                     </div>
                 </div>
 
@@ -1517,18 +1509,18 @@
                     </div>
                     <div class="bg-white border border-stone-200 rounded-sm p-4 shadow-xs">
                         <div class="text-xs font-bold text-stone-500 font-mono">最終留任報到率</div>
-                        <div class="text-2xl sm:text-3xl font-black text-teal-700 mt-1 font-mono-num" id="s-kpi-retention">32.6%</div>
-                        <div class="text-[11px] text-stone-500 mt-1" id="s-kpi-retain-sub">累積報到留任 <strong id="s-kpi-enrolled" class="font-mono-num">171</strong> 人 (官方榜單)</div>
+                        <div class="text-2xl sm:text-3xl font-black text-teal-700 mt-1 font-mono-num" id="s-kpi-retention">32.2%</div>
+                        <div class="text-[11px] text-stone-500 mt-1" id="s-kpi-retain-sub">累積報到留任 <strong id="s-kpi-enrolled" class="font-mono-num">166</strong> 人 (官方榜單)</div>
                     </div>
                     <div class="bg-white border border-stone-200 rounded-sm p-4 shadow-xs">
                         <div class="text-xs font-bold text-stone-500 font-mono">頭號外流去向</div>
                         <div class="text-lg sm:text-xl font-black text-rose-700 mt-1 truncate" id="s-kpi-rival">國立高雄科技大學</div>
-                        <div class="text-[11px] text-stone-500 mt-1">累積外流吸納 <strong id="s-kpi-rival-lost" class="font-mono-num">87</strong> 人</div>
+                        <div class="text-[11px] text-stone-500 mt-1">累積外流吸納 <strong id="s-kpi-rival-lost" class="font-mono-num">83</strong> 人</div>
                     </div>
                     <div class="bg-white border border-stone-200 rounded-sm p-4 shadow-xs">
                         <div class="text-xs font-bold text-stone-500 font-mono">次席外流去向</div>
                         <div class="text-lg sm:text-xl font-black text-amber-700 mt-1 truncate" id="s-kpi-sec-rival">逢甲大學</div>
-                        <div class="text-[11px] text-stone-500 mt-1">累積外流吸納 <strong id="s-kpi-sec-lost" class="font-mono-num">30</strong> 人</div>
+                        <div class="text-[11px] text-stone-500 mt-1">累積外流吸納 <strong id="s-kpi-sec-lost" class="font-mono-num">24</strong> 人</div>
                     </div>
                 </div>
 
@@ -1588,33 +1580,33 @@
                 </div>
             </div>
 
-            <!-- ==================== 模式 2 容器：九大校系全景對決消長趨勢 ==================== -->
+            <!-- ==================== 模式 2 容器：四大校系全景對決消長趨勢 ==================== -->
             <div id="m6-panel-duel" class="hidden space-y-6">
                 <!-- 4 大全景指標 -->
                 <div class="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4">
                     <div class="bg-white border border-stone-200 rounded-sm p-4 shadow-xs">
-                        <div class="text-xs font-bold text-stone-500 font-mono">中科 vs 高科 總對決</div>
-                        <div class="text-2xl sm:text-3xl font-black text-teal-700 mt-1 font-mono-num">88 : 87</div>
-                        <div class="text-[11px] text-stone-500 mt-1">中科奪高科 88 人 · 高科奪中科 87 人</div>
-                        <div class="mt-2 text-[10px] font-bold text-teal-800 bg-teal-50 px-1.5 py-0.5 rounded inline-block font-mono">中科淨奪 +1 人 (115年奪36人創新高)</div>
+                        <div class="text-xs font-bold text-stone-500 font-mono">中科 vs 高科 公立雙雄</div>
+                        <div class="text-2xl sm:text-3xl font-black text-teal-700 mt-1 font-mono-num">39 : 83</div>
+                        <div class="text-[11px] text-stone-500 mt-1">中科吸納高科 39 人 · 流失高科 83 人</div>
+                        <div class="mt-2 text-[10px] font-bold text-teal-800 bg-teal-50 px-1.5 py-0.5 rounded inline-block font-mono">均分領先高科 +5.80 分 (門檻優勢)</div>
                     </div>
                     <div class="bg-white border border-stone-200 rounded-sm p-4 shadow-xs">
                         <div class="text-xs font-bold text-stone-500 font-mono">中科 vs 逢甲 同城對決</div>
-                        <div class="text-2xl sm:text-3xl font-black text-sky-700 mt-1 font-mono-num">30 人流失</div>
-                        <div class="text-[11px] text-stone-500 mt-1">中科流失逢甲 30 人 · 年均 8~12 人</div>
-                        <div class="mt-2 text-[10px] font-bold text-sky-800 bg-sky-50 px-1.5 py-0.5 rounded inline-block font-mono">公私跨軌拉扯 (守穩留任底盤)</div>
+                        <div class="text-2xl sm:text-3xl font-black text-sky-700 mt-1 font-mono-num">24 人流失</div>
+                        <div class="text-[11px] text-stone-500 mt-1">三年中科外流逢甲 24 人 · 年均 6~10 人</div>
+                        <div class="mt-2 text-[10px] font-bold text-sky-800 bg-sky-50 px-1.5 py-0.5 rounded inline-block font-mono">公立學費優勢築起台中同城護城河</div>
                     </div>
                     <div class="bg-white border border-stone-200 rounded-sm p-4 shadow-xs">
-                        <div class="text-xs font-bold text-stone-500 font-mono">中科 vs 雲科 頂部磁吸</div>
-                        <div class="text-2xl sm:text-3xl font-black text-amber-700 mt-1 font-mono-num">16 : 28</div>
-                        <div class="text-[11px] text-stone-500 mt-1">中科奪雲科 16 人 · 雲科奪中科 28 人</div>
-                        <div class="mt-2 text-[10px] font-bold text-amber-800 bg-amber-50 px-1.5 py-0.5 rounded inline-block font-mono">頂部標竿磁吸 (中科逆奪16人)</div>
+                        <div class="text-xs font-bold text-stone-500 font-mono">中科 vs 北商 國立旗艦</div>
+                        <div class="text-2xl sm:text-3xl font-black text-indigo-700 mt-1 font-mono-num">7 : 11</div>
+                        <div class="text-[11px] text-stone-500 mt-1">中科逆吸北商 7 人 · 北商吸納中科 11 人</div>
+                        <div class="mt-2 text-[10px] font-bold text-indigo-800 bg-indigo-50 px-1.5 py-0.5 rounded inline-block font-mono">南北雙胞胎標竿 (具備強大黏著度)</div>
                     </div>
                     <div class="bg-white border border-stone-200 rounded-sm p-4 shadow-xs">
                         <div class="text-xs font-bold text-stone-500 font-mono">全量實證資料庫</div>
                         <div class="text-2xl sm:text-3xl font-black text-stone-900 mt-1 font-mono-num">1,568 筆</div>
-                        <div class="text-[11px] text-stone-500 mt-1">6 大指標校系 113~115 全量考生名冊</div>
-                        <div class="mt-2 text-[10px] font-bold text-stone-800 bg-stone-100 px-1.5 py-0.5 rounded inline-block font-mono">18 頁官方榜單 · Apple OCR 微觀穿透</div>
+                        <div class="text-[11px] text-stone-500 mt-1">4 大指標校系 113~115 全量考生名冊</div>
+                        <div class="mt-2 text-[10px] font-bold text-stone-800 bg-stone-100 px-1.5 py-0.5 rounded inline-block font-mono">16 頁官方榜單 · Apple OCR 微觀穿透</div>
                     </div>
                 </div>
 
@@ -1629,7 +1621,7 @@
                                 </h3>
                             </div>
                             <p class="text-xs text-stone-500 mt-1" id="duel-chart-subtitle">
-                                呈現每年中科大財政稅務系與高科大、逢甲大學、雲科大等競品校系相互吸納之實際報到人數對比。
+                                呈現每年中科大財政稅務系與高科大、北商大、逢甲大學等競品校系相互吸納之實際報到人數對比。
                             </p>
                         </div>
                         <!-- 3 種對決視角切換 -->
